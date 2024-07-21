@@ -26,38 +26,33 @@
 .download-buttons button {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  background-color: transparent;
+  padding: 0;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .store-badge {
-  width: 128px;
+  height: 40px;
+  width: auto;
+}
+
+.app-store-badge {
+  height: 40px;
+  width: auto;
+}
+
+.google-play-badge {
   height: 128px;
-  margin-right: 0.5rem;
+  width: auto;
 }
 
-.google-play {
-  background-color: transparent;
-  /* Changed to transparent */
-  color: #000;
-  border: none;
-  /* Removed border */
-  padding: 0;
-}
-
-.google-play span {
-  display: none;
-  /* Hide the text as it's included in the image */
-}
-
-.app-store,
 .other-store {
   background-color: #2e7d32;
   color: #fff;
   padding: 0.75rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .app-logo {
@@ -67,6 +62,8 @@
 .app-logo img {
   width: 100px;
   height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .app-logo h3 {

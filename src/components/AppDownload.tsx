@@ -2,6 +2,7 @@ import React from "react";
 import "./AppDownload.css";
 import appLogo from "../assets/Logo.jpg";
 import googlePlayStore from "../assets/google-playstore.png";
+import appStore from "../assets/app-store.png";
 
 function AppDownload() {
   return (
@@ -10,15 +11,20 @@ function AppDownload() {
         <h2>Download the KRISHI MITRA app now!</h2>
         <p>App available in multiple stores for your convenience</p>
         <div className="download-buttons">
-          <button className="app-store">Download from App Store</button>
+          <button className="app-store">
+            <img
+              src={appStore}
+              alt="Download on the App Store"
+              className="store-badge app-store-badge"
+            />
+          </button>
           <button className="google-play">
             <img
               src={googlePlayStore}
               alt="Get it on Google Play"
-              className="store-badge"
+              className="store-badge google-play-badge"
             />
           </button>
-          <button className="other-store">Download from Uizard</button>
         </div>
       </div>
       <div className="app-logo">
