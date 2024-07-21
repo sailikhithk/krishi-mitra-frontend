@@ -17,7 +17,6 @@ function AppDownload() {
               alt="Google Play"
               className="store-badge"
             />
-            Get it on Google Play
           </button>
           <button className="other-store">Download from Uizard</button>
         </div>
