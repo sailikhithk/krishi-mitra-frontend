@@ -18,6 +18,7 @@
 
 .download-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -29,28 +30,34 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .store-badge {
-  width: 256px;
-  height: 256px;
+  width: 128px;
+  height: 128px;
   margin-right: 0.5rem;
 }
 
-.app-store {
-  background-color: #000;
-  color: #fff;
-}
-
 .google-play {
-  background-color: #fff;
+  background-color: transparent;
+  /* Changed to transparent */
   color: #000;
-  border: 1px solid #000;
+  border: none;
+  /* Removed border */
+  padding: 0;
 }
 
+.google-play span {
+  display: none;
+  /* Hide the text as it's included in the image */
+}
+
+.app-store,
 .other-store {
   background-color: #2e7d32;
   color: #fff;
+  padding: 0.75rem 1rem;
 }
 
 .app-logo {
@@ -70,4 +77,14 @@
 .app-logo p {
   color: #2e7d32;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-download {
+    flex-direction: column;
+  }
+
+  .download-buttons {
+    justify-content: center;
+  }
 }

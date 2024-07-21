@@ -14,7 +14,7 @@ function AppDownload() {
           <button className="google-play">
             <img
               src={googlePlayStore}
-              alt="Google Play"
+              alt="Get it on Google Play"
               className="store-badge"
             />
           </button>
