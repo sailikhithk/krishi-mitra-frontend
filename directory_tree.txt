@@ -1,5 +1,6 @@
 .
 ├── LICENSE
+├── Makefile
 ├── README.md
 ├── directory_tree.txt
 ├── index.html
@@ -60,12 +61,10 @@
 │   │   ├── profile.jpg
 │   │   ├── soil health monitoring new.jpg
 │   │   ├── soil health monitoring.jpg
-│   │   ├── soil.jpg
-│   │   ├── ~$ishiMitra _ F2 .docx
-│   │   └── ~$ishimitra.docx
+│   │   └── soil.jpg
 │   └── vite-env.d.ts
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
 
-6 directories, 63 files
+6 directories, 62 files
