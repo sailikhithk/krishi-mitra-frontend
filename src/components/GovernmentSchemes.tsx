@@ -1,3 +1,4 @@
+import React from "react";
 import "./GovernmentSchemes.css";
 import { RiPlantFill } from "react-icons/ri";
 import { FaWater } from "react-icons/fa6";
@@ -5,102 +6,33 @@ import { FaLeaf } from "react-icons/fa";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { TbArrowsLeftRight } from "react-icons/tb";
+
 function GovernmentSchemes() {
+  const schemes = [
+    { icon: <RiPlantFill />, title: "Healthy Crops" },
+    { icon: <FaWater />, title: "Water optimization" },
+    { icon: <FaLeaf />, title: "Pesticide management" },
+    { icon: <FaHandshakeSimple />, title: "Efficient bidding process" },
+    { icon: <FaPeopleGroup />, title: "Vendor interactions" },
+    { icon: <TbArrowsLeftRight />, title: "Buyer Connections" },
+  ];
+
   return (
-    <>
-      <div className="govtcard">
-        <br></br>
-        <h5 className="card-heading">Government Schemes</h5>
-        <div className="schemecards">
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <RiPlantFill />{" "}
-                  </h1>
-                  <h5 className="card-title">Healthy Crops</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <FaWater />{" "}
-                  </h1>
-                  <h5 className="card-title">Water optimization</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <FaLeaf />{" "}
-                  </h1>
-                  <h5 className="card-title">Pesticide management</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <FaHandshakeSimple />{" "}
-                  </h1>
-                  <h5 className="card-title">Efficient bidding process</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <FaPeopleGroup />{" "}
-                  </h1>
-                  <h5 className="card-title">Vendor interactions</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <div className="card-body-new">
-                  <button className="detailsbutton" type="button">
-                    Details
-                  </button>
-                  <h1 className="iconsgovt">
-                    {" "}
-                    <TbArrowsLeftRight />{" "}
-                  </h1>
-                  <h5 className="card-title">Buyer Connections</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="government-schemes">
+      <div className="schemes-header">
+        <h2>Government schemes</h2>
+        <button className="view-all">View all</button>
       </div>
-    </>
+      <div className="schemes-grid">
+        {schemes.map((scheme, index) => (
+          <div key={index} className="scheme-card">
+            <button className="details-button">Details</button>
+            <div className="scheme-icon">{scheme.icon}</div>
+            <h3>{scheme.title}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

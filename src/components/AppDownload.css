@@ -1,0 +1,73 @@
+.app-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4c3;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.app-info {
+  flex: 1;
+}
+
+.app-info h2 {
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.download-buttons button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.store-badge {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.app-store {
+  background-color: #000;
+  color: #fff;
+}
+
+.google-play {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.other-store {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.app-logo {
+  text-align: center;
+}
+
+.app-logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.app-logo h3 {
+  color: #2e7d32;
+  margin: 0.5rem 0 0;
+}
+
+.app-logo p {
+  color: #2e7d32;
+  margin: 0;
+}

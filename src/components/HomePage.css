@@ -1,55 +1,85 @@
-.card-title {
-    text-align: center;
-    font-style: normal;
-    margin-top: 5ch;
-    
+.home-page {
+    font-family: Arial, sans-serif;
 }
 
-.card-img {
-    
-    max-height: 50ch
-    
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
 }
 
-.button1{
-    margin-left:130ch;
-    background-color: darkgreen;
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.explore-features {
+    background-color: #2e7d32;
     color: white;
-
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
-.button2{
-    margin-left: 2ch;
-    background-color: darkgreen;
+
+.hero {
+    background-image: url('../assets/HomePageHead.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
-}
-.searchbar{
-    margin-left: 50ch;
-    max-width: 50ch;
-    margin-top: 10ch;
-}
-
-.row {
-    background-color: lightgoldenrodyellow;
-    
-    
-}
-.card-body{
-    background-color: lightgoldenrodyellow;
-}
-
-
-.card-footer{
     text-align: center;
-    background-color: lightgoldenrodyellow;
-    
 }
 
-.icons{
-    
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    width: 50%;
+    max-width: 600px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: none;
+}
+
+.search-bar button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #f0f4c3;
+}
+
+.feature {
     text-align: center;
-    color: darkgreen;
 }
-.search{
-    font:bold;
 
+.feature-icon {
+    font-size: 3rem;
+    color: #2e7d32;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }

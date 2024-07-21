@@ -1,103 +1,63 @@
-import HomePageMain from "../assets/HomePageHead.png";
+import React from "react";
 import "./HomePage.css";
 import { BsCart3 } from "react-icons/bs";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { GrDeliver } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa6";
 import GovernmentSchemes from "./GovernmentSchemes";
+import KnowledgeHub from "./KnowledgeHub";
+import AppDownload from "./AppDownload";
 
 function HomePage() {
   return (
-    <>
-      <div className="home-page-top">
-        <img src={HomePageMain} className="card-img" alt=" " />
-        <div className="card-img-overlay">
-          <button className="button1" type="button">
-            US
-          </button>
-          <button className="button2" type="button">
-            Explore Features
-          </button>
+    <div className="home-page">
+      <header>
+        <div className="logo">KRISHIMITRA</div>
+        <button className="explore-features">Explore features</button>
+      </header>
 
-          <h2 className="card-title">Empowering farmers with technology</h2>
-          <div className="searchbar">
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter your coordinates"
-              />
-            </div>
-          </div>
+      <section className="hero">
+        <h1>Empowering farmers with technology!</h1>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Enter your location for personalized insights"
+          />
+          <button>Search</button>
         </div>
-      </div>
+      </section>
 
-      <div className="row row-cols-1 row-cols-md-4 g-4">
-        <div className="col">
-          <div className="card h-100">
-            <div className="card-body">
-              <h1 className="icons">
-                <TiWeatherPartlySunny />
-              </h1>
-              <h6 className="card-title">Enhancing crop</h6>
-              <div className="card-footer">
-                <small className="text-body-secondary">
-                  Real-time weather updates
-                </small>
-              </div>
-            </div>
-          </div>
+      <section className="features">
+        <div className="feature">
+          <TiWeatherPartlySunny className="feature-icon" />
+          <h3>Enhancing crop</h3>
+          <p>Real-time weather updates</p>
         </div>
-
-        <div className="col">
-          <div className="card h-100">
-            <div className="card-body">
-              <h1 className="icons">
-                <BsCart3 />
-              </h1>
-              <h6 className="card-title">Market</h6>
-
-              <div className="card-footer">
-                <small className="text-body-secondary">
-                  Efficiency gauranteed
-                </small>
-              </div>
-            </div>
-          </div>
+        <div className="feature">
+          <BsCart3 className="feature-icon" />
+          <h3>Market</h3>
+          <p>Efficiency guaranteed</p>
         </div>
-        <div className="col">
-          <div className="card h-100">
-            <div className="card-body">
-              <h1 className="icons">
-                <GrDeliver />
-              </h1>
-              <h6 className="card-title">Timely Deliveries</h6>
-
-              <div className="card-footer">
-                <small className="text-body-secondary">Fast and Reliable</small>
-              </div>
-            </div>
-          </div>
+        <div className="feature">
+          <GrDeliver className="feature-icon" />
+          <h3>Timely deliveries</h3>
+          <p>Fast and reliable</p>
         </div>
-        <div className="col">
-          <div className="card h-100">
-            <div className="card-body">
-              <h1 className="icons">
-                <FaRegClock />
-              </h1>
-              <h6 className="card-title">Live Updates</h6>
-
-              <div className="card-footer">
-                <small className="text-body-secondary">
-                  Stay Updates on orders
-                </small>
-              </div>
-            </div>
-          </div>
+        <div className="feature">
+          <FaRegClock className="feature-icon" />
+          <h3>Live updates</h3>
+          <p>Stay updated on orders</p>
         </div>
-      </div>
+      </section>
+
       <GovernmentSchemes />
-    </>
+      <KnowledgeHub />
+      <AppDownload />
+
+      <footer>
+        <p>© 2024 Farmer Dashboard. All rights reserved.</p>
+      </footer>
+    </div>
   );
 }
 
