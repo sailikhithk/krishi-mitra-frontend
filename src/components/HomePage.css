@@ -1,0 +1,55 @@
+.card-title {
+    text-align: center;
+    font-style: normal;
+    margin-top: 5ch;
+    
+}
+
+.card-img {
+    
+    max-height: 50ch
+    
+}
+
+.button1{
+    margin-left:130ch;
+    background-color: darkgreen;
+    color: white;
+
+}
+.button2{
+    margin-left: 2ch;
+    background-color: darkgreen;
+    color: white;
+}
+.searchbar{
+    margin-left: 50ch;
+    max-width: 50ch;
+    margin-top: 10ch;
+}
+
+.row {
+    background-color: lightgoldenrodyellow;
+    
+    
+}
+.card-body{
+    background-color: lightgoldenrodyellow;
+}
+
+
+.card-footer{
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    
+}
+
+.icons{
+    
+    text-align: center;
+    color: darkgreen;
+}
+.search{
+    font:bold;
+
+}

@@ -1,0 +1,34 @@
+.
+├── directory_tree.txt
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets
+│   │   ├── HomePageHead.png
+│   │   ├── HomePageMain.png
+│   │   ├── biddingprocess.png
+│   │   ├── buyerconnections.png
+│   │   ├── healthycrops.png
+│   │   ├── irrigation.png
+│   │   ├── pesticidemanagement.png
+│   │   ├── react.svg
+│   │   └── vendorinteractions.png
+│   ├── components
+│   │   ├── GovernmentSchemes.css
+│   │   ├── GovernmentSchemes.tsx
+│   │   ├── HomePage.css
+│   │   ├── HomePage.tsx
+│   │   └── dummy
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+5 directories, 27 files

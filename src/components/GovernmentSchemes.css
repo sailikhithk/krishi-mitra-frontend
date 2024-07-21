@@ -1,0 +1,32 @@
+.card-body-new {
+    background-color: lightgoldenrodyellow;
+    
+}
+.card-heading{
+    margin-top: 1ch;
+    margin-left: 7ch;
+    color: white;
+}
+.schemecards{
+    margin-right: 10ch;
+    margin-left: 10ch;
+    margin-top: 7ch;
+}
+.govtcard{
+    background-color: olivedrab;
+}
+.iconsgovt{
+    margin-left: 7ch;
+    margin-top: 2ch;
+    
+}
+.card-title{
+    margin-top: 1ch;
+}
+.detailsbutton{
+    background-color: lightgray;
+    margin-left: 32ch;
+    width: 8ch;
+    border-color: lightgray;
+    margin-top: 1ch;
+}
