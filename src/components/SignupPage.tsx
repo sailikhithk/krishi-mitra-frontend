@@ -17,14 +17,12 @@ const SignupPage = () => {
       });
       // Handle successful signup (e.g., store token, navigate to another page)
       console.log('Signup successful:', response.data);
-      navigate('/'); // Redirect to home page after successful signup
-    } catch (error: any) {
+      window.alert('Signup successful! Please log in.');
+      navigate('/login'); // Redirect to login page after successful signup
+    } catch (error) {
       // Handle error
-      if (error.response) {
-        console.error('Signup failed:', error.response.data);
-      } else {
-        console.error('An unexpected error occurred:', error);
-      }
+      console.error('Signup failed:', error.response?.data || error.message);
+      window.alert('Signup failed. Please try again.');
     }
   };
 
