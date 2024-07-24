@@ -1,8 +1,10 @@
 Folder PATH listing
 Volume serial number is 00540049 58C0:B943
 C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
+|   api.ts
 |   App.css
 |   App.tsx
+|   AuthContext.tsx
 |   index.css
 |   main.tsx
 |   vite-env.d.ts
@@ -11,6 +13,8 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       app-store.png
 |       biddingprocess.png
 |       buyerconnections.png
+|       farm.jpg
+|       farmer.png
 |       google-playstore.png
 |       google.png
 |       healthycrops.png
@@ -25,6 +29,7 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 +---components
 |       AppDownload.css
 |       AppDownload.tsx
+|       BiddingProcess.css
 |       BiddingProcess.tsx
 |       CropVarieties.tsx
 |       dummy
@@ -34,6 +39,10 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       HomePage.tsx
 |       KnowledgeHub.css
 |       KnowledgeHub.tsx
+|       LoginPage.tsx
+|       SignupPage.tsx
+|       SoilHealthMonitoring.css
+|       SoilHealthMonitoring.tsx
 |       
 \---mockups
         5e93410d-fa41-45ba-b8c2-7a943ea9d334.png
