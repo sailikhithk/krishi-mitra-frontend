@@ -10,15 +10,17 @@ const SignupPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await api.post('/users', { 
+      const response = await api.post('/users/', { 
         username, 
         email, 
-        hashed_password: password 
+        password 
       });
+      // Handle successful signup (e.g., store token, navigate to another page)
       console.log('Signup successful:', response.data);
-      navigate('/'); // Redirect to home page after successful signup
+      navigate('/login'); // Redirect to login page after successful signup
     } catch (error) {
-      console.error('Signup failed:', error);
+      // Handle error
+      console.error('Signup failed:', error.response.data);
     }
   };
 
