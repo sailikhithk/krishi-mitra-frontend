@@ -83,3 +83,12 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+
+.hub-grid button{
+    position: absolute;
+    margin-left: 30ch;
+    background-color: #2e7d32;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}

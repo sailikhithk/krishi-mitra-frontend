@@ -3,6 +3,11 @@
     padding: 2rem;
 }
 
+.bidding-platform {
+    background-color: #4caf50;
+    padding: 2rem;
+}
+
 .schemes-header {
     display: flex;
     justify-content: space-between;

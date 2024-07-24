@@ -6,6 +6,7 @@ import { FaLeaf } from "react-icons/fa";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { TbArrowsLeftRight } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 function GovernmentSchemes() {
   const schemes = [
@@ -27,7 +28,9 @@ function GovernmentSchemes() {
         {schemes.map((scheme, index) => (
           <div key={index} className="scheme-card">
             <button className="details-button">Details</button>
-            <div className="scheme-icon">{scheme.icon}</div>
+            <Link to="/biddingprocess" className="scheme-icon">
+              {scheme.icon}
+            </Link>
             <h3>{scheme.title}</h3>
           </div>
         ))}
