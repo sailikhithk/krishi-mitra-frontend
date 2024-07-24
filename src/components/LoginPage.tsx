@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
+import './LoginPage.css';
+import logo from '../assets/Logo.jpg';
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
     try {
       const formData = new FormData();
       formData.append('username', username);
@@ -17,33 +20,40 @@ const LoginPage = () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       });
-      // Handle successful login (e.g., store token, navigate to another page)
       console.log('Login successful:', response.data);
-      window.alert('Login successful!');
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/');
     } catch (error: any) {
-      // Handle error
       console.error('Login failed:', error.response?.data || error.message);
-      window.alert('Login failed. Please check your credentials and try again.');
+      alert('Login failed. Please check your credentials and try again.');
     }
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <input 
-        type="text" 
-        value={username} 
-        onChange={(e) => setUsername(e.target.value)} 
-        placeholder="Username or Email" 
-      />
-      <input 
-        type="password" 
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)} 
-        placeholder="Password" 
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className="auth-container">
+      <div className="auth-card">
+        <img src={logo} alt="Krishi Mitra Logo" className="auth-logo" />
+        <h2>Welcome back to Krishi Mitra</h2>
+        <form onSubmit={handleLogin} className="auth-form">
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username or Email"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+          <button type="submit" className="auth-button">Login</button>
+        </form>
+        <p>
+          Don't have an account? <a href="/signup">Sign up</a>
+        </p>
+      </div>
     </div>
   );
 };
