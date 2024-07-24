@@ -40,6 +40,9 @@ serve:
 tree:
 	$(TREE) > $(DIRECTORY_TREE)
 
+tree_windows:
+	tree /F /A src | findstr /V /C:"node_modules" | findstr /V /C:".bin" | findstr /V /C:"package-lock.json" | findstr /V /C:"vite.config.ts" > directory_tree.txt
+
 # Clean the distribution directory
 clean:
 	$(RM) $(DIST_DIR)

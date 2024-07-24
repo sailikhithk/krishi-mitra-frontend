@@ -1,15 +1,12 @@
-import { FaLine } from "react-icons/fa6";
-import { FaGlobe } from "react-icons/fa";
+import React from "react";
+import "./BiddingProcess.css";
+import { FaLine, FaGlobe, FaEye, FaTractor, FaCalculator, FaCoins } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
-import { FaEye } from "react-icons/fa";
-import { FaTractor } from "react-icons/fa6";
-import { RiPlantFill } from "react-icons/ri";
+import { RiPlantFill, RiLineChartFill } from "react-icons/ri";
 import { FaHandshakeSimple } from "react-icons/fa6";
-import { RiLineChartFill } from "react-icons/ri";
-import { FaCalculator } from "react-icons/fa6";
-import { FaCoins } from "react-icons/fa6";
 import AppDownload from "./AppDownload";
 import CropVarieties from "./CropVarieties";
+
 function BiddingProcess() {
   const schemes = [
     { icon: <RiPlantFill />, title: "Fresh produce for merchants" },
@@ -19,15 +16,24 @@ function BiddingProcess() {
     { icon: <FaCoins />, title: "Price discovery insights" },
     { icon: <FaCalculator />, title: "Financial planning tools" },
   ];
+
   return (
-    <>
+    <div className="bidding-process">
+      <header className="bidding-header">
+        <h1>Market Price</h1>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Market Prices</a>
+          <a href="#">Trends</a>
+          <a href="#">Forecasts</a>
+          <a href="#">Marketplace</a>
+        </nav>
+      </header>
+
       <section className="hero">
-        <h1>Real-time market Prices for your crops</h1>
+        <h1>Real-time market prices for your crops!</h1>
         <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Enter your crops to see price updates"
-          />
+          <input type="text" placeholder="Enter your crop to see price updates" />
           <button>Search</button>
         </div>
       </section>
@@ -45,8 +51,8 @@ function BiddingProcess() {
         </div>
         <div className="feature">
           <BsCart3 className="feature-icon" />
-          <h3>Demand</h3>
-          <p>Stay ahead with the market</p>
+          <h3>Demand and Supply</h3>
+          <p>Stay ahead in the market</p>
         </div>
         <div className="feature">
           <FaEye className="feature-icon" />
@@ -55,8 +61,8 @@ function BiddingProcess() {
         </div>
       </section>
 
-      <div className="bidding-platform">
-        <div className="schemes-header">
+      <section className="bidding-platform">
+        <div className="section-header">
           <h2>Bidding Platform</h2>
           <button className="view-all">See all</button>
         </div>
@@ -65,18 +71,19 @@ function BiddingProcess() {
             <div key={index} className="scheme-card">
               <button className="details-button">Details</button>
               <div className="scheme-icon">{scheme.icon}</div>
-              <h5>{scheme.title}</h5>
+              <h3>{scheme.title}</h3>
             </div>
           ))}
         </div>
-      </div>
+      </section>
+
       <CropVarieties />
       <AppDownload />
 
       <footer>
         <p>© 2024 Farmer Dashboard. All rights reserved.</p>
       </footer>
-    </>
+    </div>
   );
 }
 
