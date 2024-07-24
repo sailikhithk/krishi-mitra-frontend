@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 function GovernmentSchemes() {
   const schemes = [
-    { icon: <RiPlantFill />, title: "Healthy Crops" },
-    { icon: <FaWater />, title: "Water optimization" },
-    { icon: <FaLeaf />, title: "Pesticide management" },
-    { icon: <FaHandshakeSimple />, title: "Efficient bidding process" },
-    { icon: <FaPeopleGroup />, title: "Vendor interactions" },
-    { icon: <TbArrowsLeftRight />, title: "Buyer Connections" },
+    { icon: <RiPlantFill />, title: "Healthy Crops", link: "/healthy-crops" },
+    { icon: <FaWater />, title: "Water optimization", link: "/soilhealth" },
+    { icon: <FaLeaf />, title: "Pesticide management", link: "/pesticide-management" },
+    { icon: <FaHandshakeSimple />, title: "Efficient bidding process", link: "/biddingprocess" },
+    { icon: <FaPeopleGroup />, title: "Vendor interactions", link: "/vendor-interactions" },
+    { icon: <TbArrowsLeftRight />, title: "Buyer Connections", link: "/buyer-connections" },
   ];
 
   return (
@@ -28,7 +28,7 @@ function GovernmentSchemes() {
         {schemes.map((scheme, index) => (
           <div key={index} className="scheme-card">
             <button className="details-button">Details</button>
-            <Link to="/biddingprocess" className="scheme-icon">
+            <Link to={scheme.link} className="scheme-icon">
               {scheme.icon}
             </Link>
             <h3>{scheme.title}</h3>
