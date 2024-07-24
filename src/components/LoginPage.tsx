@@ -9,17 +9,25 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await api.post('/users/token', {
-        username,
-        password,
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
+
+      const response = await api.post('/users/token', formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       });
       // Handle successful login (e.g., store token, navigate to another page)
       console.log('Login successful:', response.data);
-      localStorage.setItem('token', response.data.access_token);
-      navigate('/');
-    } catch (error) {
+      navigate('/'); // Redirect to home page after successful login
+    } catch (error: any) {
       // Handle error
-      console.error('Login failed:', error.response.data);
+      if (error.response) {
+        console.error('Login failed:', error.response.data);
+      } else {
+        console.error('An unexpected error occurred:', error);
+      }
     }
   };
 
