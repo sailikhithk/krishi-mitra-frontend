@@ -1,32 +1,58 @@
-.card-body-new {
-    background-color: lightgoldenrodyellow;
-    
+.government-schemes {
+    background-color: #4caf50;
+    padding: 2rem;
 }
-.card-heading{
-    margin-top: 1ch;
-    margin-left: 7ch;
+
+.bidding-platform {
+    background-color: #4caf50;
+    padding: 2rem;
+}
+
+.schemes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.schemes-header h2 {
     color: white;
 }
-.schemecards{
-    margin-right: 10ch;
-    margin-left: 10ch;
-    margin-top: 7ch;
+
+.view-all {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
-.govtcard{
-    background-color: olivedrab;
+
+.schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
-.iconsgovt{
-    margin-left: 7ch;
-    margin-top: 2ch;
-    
+
+.scheme-card {
+    background-color: #f0f4c3;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
 }
-.card-title{
-    margin-top: 1ch;
+
+.details-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
 }
-.detailsbutton{
-    background-color: lightgray;
-    margin-left: 32ch;
-    width: 8ch;
-    border-color: lightgray;
-    margin-top: 1ch;
+
+.scheme-icon {
+    font-size: 3rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
 }

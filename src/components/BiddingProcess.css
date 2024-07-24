@@ -1,0 +1,118 @@
+.bidding-process {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background-image: url('../assets/farmer.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  width: 50%;
+  max-width: 600px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+}
+
+.search-bar button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  background-color: #f0f4c3;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #2e7d32;
+}
+
+.bidding-platform {
+  background-color: #4caf50;
+  padding: 2rem;
+}
+
+.schemes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.schemes-header h2 {
+  color: white;
+}
+
+.view-all {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.schemes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.scheme-card {
+  background-color: #f0f4c3;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.details-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #e0e0e0;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.scheme-icon {
+  font-size: 3rem;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
