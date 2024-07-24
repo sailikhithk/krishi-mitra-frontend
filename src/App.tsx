@@ -3,7 +3,9 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import BiddingProcess from "./components/BiddingProcess";
 import SoilHealthMonitoring from "./components/SoilHealthMonitoring";
-import { Route, Routes } from "react-router";
+import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/biddingprocess" element={<BiddingProcess />} />
       {/* <Route path="/vendor-interactions" element={<VendorInteractions />} /> */}
       {/* <Route path="/buyer-connections" element={<BuyerConnections />} /> */}
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
