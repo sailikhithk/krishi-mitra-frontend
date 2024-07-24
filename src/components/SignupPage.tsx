@@ -19,7 +19,7 @@ const SignupPage = () => {
       console.log('Signup successful:', response.data);
       window.alert('Signup successful! Please log in.');
       navigate('/login'); // Redirect to login page after successful signup
-    } catch (error) {
+    } catch (error: any) {
       // Handle error
       console.error('Signup failed:', error.response?.data || error.message);
       window.alert('Signup failed. Please try again.');

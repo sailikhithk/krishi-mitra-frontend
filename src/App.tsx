@@ -1,14 +1,15 @@
+import reactLogo from "./assets/react.svg";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import BiddingProcess from "./components/BiddingProcess";
 import SoilHealthMonitoring from "./components/SoilHealthMonitoring";
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* <Route path="/healthy-crops" element={<HealthyCrops />} /> */}
@@ -20,7 +21,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

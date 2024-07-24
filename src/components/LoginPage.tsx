@@ -12,7 +12,6 @@ const LoginPage = () => {
       const formData = new FormData();
       formData.append('username', username);
       formData.append('password', password);
-
       const response = await api.post('/users/token', formData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -20,14 +19,12 @@ const LoginPage = () => {
       });
       // Handle successful login (e.g., store token, navigate to another page)
       console.log('Login successful:', response.data);
+      window.alert('Login successful!');
       navigate('/'); // Redirect to home page after successful login
     } catch (error: any) {
       // Handle error
-      if (error.response) {
-        console.error('Login failed:', error.response.data);
-      } else {
-        console.error('An unexpected error occurred:', error);
-      }
+      console.error('Login failed:', error.response?.data || error.message);
+      window.alert('Login failed. Please check your credentials and try again.');
     }
   };
 
@@ -38,7 +35,7 @@ const LoginPage = () => {
         type="text" 
         value={username} 
         onChange={(e) => setUsername(e.target.value)} 
-        placeholder="Username" 
+        placeholder="Username or Email" 
       />
       <input 
         type="password" 
