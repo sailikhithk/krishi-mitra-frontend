@@ -49,6 +49,26 @@ Krishi Mitra is a comprehensive digital platform designed to revolutionize farmi
 ```
 
 ## Key Components
+## Navigation
+
+The application uses a consistent Navbar component across all pages, allowing users to easily navigate between different sections:
+
+- Home
+- Soil Health Monitoring
+- Bidding Process
+- Government Schemes
+- Knowledge Hub
+- Login/Signup
+
+The Navbar is implemented in `src/components/Navbar.tsx` and styled in `src/components/Navbar.css`. It's integrated into the main `App.tsx` component, ensuring it's displayed on all pages.
+
+To add new navigation items:
+
+1. Update the `Navbar.tsx` component to include the new link.
+2. Add the corresponding route in `App.tsx`.
+3. Create the new component and add it to the appropriate directory.
+
+This structure allows for easy expansion of the application with new features and pages while maintaining consistent navigation throughout the app.
 
 ### App.tsx
 
