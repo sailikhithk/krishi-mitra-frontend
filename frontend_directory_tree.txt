@@ -29,17 +29,23 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 +---components
 |       AppDownload.css
 |       AppDownload.tsx
+|       AuthPages.css
 |       BiddingProcess.css
 |       BiddingProcess.tsx
 |       CropVarieties.tsx
 |       dummy
 |       GovernmentSchemes.css
 |       GovernmentSchemes.tsx
+|       HistoricalData.jsx
 |       HomePage.css
 |       HomePage.tsx
 |       KnowledgeHub.css
 |       KnowledgeHub.tsx
+|       LoginPage.css
 |       LoginPage.tsx
+|       Navbar.css
+|       Navbar.tsx
+|       SignupPage.css
 |       SignupPage.tsx
 |       SoilHealthMonitoring.css
 |       SoilHealthMonitoring.tsx
