@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SoilHealthMonitoring.css';
 import { FaLeaf, FaThermometerHalf, FaTint, FaVial, FaTruck, FaChartBar, FaArrowLeft } from 'react-icons/fa';
 import { RiPlantFill } from 'react-icons/ri';
-import { GiMeshBall } from 'gi-icons/gi';
+import { GiMeshBall } from 'react-icons/gi';
 import Navbar from './Navbar';
 import PieCharts from './PieCharts';
 import BarCharts from './BarCharts';
