@@ -77,6 +77,11 @@ header {
     color: #2e7d32;
 }
 
+.profile-icon {
+    font-size: 2rem;
+    color: #2e7d32;
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -90,5 +95,20 @@ footer {
     background-color: #2e7d32;
     border: none;
     padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.profile-features{
+    display: flex;
+    margin-left: auto;
+    justify-content: space-between;
+    
+}
+
+
+.profile-buttons{
+    background-color: #2e7d32;
+    color: white;
+    padding: 0.5rem 1rem;
     cursor: pointer;
 }

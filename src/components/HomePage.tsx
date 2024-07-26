@@ -4,16 +4,24 @@ import { BsCart3 } from "react-icons/bs";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { GrDeliver } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
 import GovernmentSchemes from "./GovernmentSchemes";
 import KnowledgeHub from "./KnowledgeHub";
 import AppDownload from "./AppDownload";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
     <div className="home-page">
       <header>
         <div className="logo">KRISHIMITRA</div>
-        <button className="explore-features">Explore features</button>
+
+        <div className="feature">
+          <button className="explore-features">Explore features</button>
+          <Link to="/profile" className="profile-icon">
+            <CgProfile />
+          </Link>
+        </div>
       </header>
 
       <section className="hero">
