@@ -1,3 +1,5 @@
+// src/components/HomePage.tsx
+
 import React from "react";
 import "./HomePage.css";
 import { BsCart3 } from "react-icons/bs";
