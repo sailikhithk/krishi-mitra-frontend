@@ -29,6 +29,11 @@ const Navbar: React.FC = () => {
           <li><Link to="/login" onClick={toggleMenu}>Login</Link></li>
           <li><Link to="/signup" onClick={toggleMenu}>Sign Up</Link></li>
         </ul>
+        <div className="header-icons">
+          <span className="icon">👤</span>
+          <span className="icon">⚙️</span>
+          <span className="icon">🔔</span>
+        </div>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
