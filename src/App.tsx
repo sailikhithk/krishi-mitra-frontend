@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import SoilHealthMonitoring from './components/SoilHealthMonitoring';
 import BiddingProcess from './components/BiddingProcess';
@@ -13,15 +14,13 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <div className="page-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/soilhealth" element={<SoilHealthMonitoring />} />
-            <Route path="/biddingprocess" element={<BiddingProcess />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/soilhealth" element={<SoilHealthMonitoring />} />
+          <Route path="/biddingprocess" element={<BiddingProcess />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       </div>
     </Router>
   );
