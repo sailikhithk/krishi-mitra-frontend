@@ -1,5 +1,7 @@
 /* Navbar.css */
 
+/* Navbar.css */
+
 .navbar {
   background-color: #2e7d32;
   width: 100%;
@@ -10,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  max-width: 1200px;
+  max-width: 1200px; /* Ensuring consistent max-width */
   margin: 0 auto;
 }
 

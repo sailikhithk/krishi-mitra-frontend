@@ -1,0 +1,87 @@
+Folder PATH listing
+Volume serial number is 00540049 58C0:B943
+C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
+|   api.ts
+|   App.css
+|   App.tsx
+|   AuthContext.tsx
+|   index.css
+|   main.tsx
+|   vite-env.d.ts
+|   
++---assets
+|       app-store.png
+|       biddingprocess.png
+|       buyerconnections.png
+|       farm.jpg
+|       farmer.png
+|       google-playstore.png
+|       google.png
+|       healthycrops.png
+|       HomePageHead.png
+|       HomePageMain.png
+|       irrigation.png
+|       Logo.jpg
+|       pesticidemanagement.png
+|       react.svg
+|       vendorinteractions.png
+|       
++---components
+|       AppDownload.css
+|       AppDownload.tsx
+|       AreaChart.tsx
+|       AuthPages.css
+|       BarCharts.tsx
+|       BiddingProcess.css
+|       BiddingProcess.tsx
+|       CropVarieties.tsx
+|       dummy
+|       GovernmentSchemes.css
+|       GovernmentSchemes.tsx
+|       HistoricalData.jsx
+|       HomePage.css
+|       HomePage.tsx
+|       Imageupload.tsx
+|       KnowledgeHub.css
+|       KnowledgeHub.tsx
+|       LineChart.tsx
+|       LoginPage.css
+|       LoginPage.tsx
+|       Navbar.css
+|       Navbar.tsx
+|       PieCharts.tsx
+|       Profile.css
+|       Profile.tsx
+|       SignupPage.css
+|       SignupPage.tsx
+|       SoilHealth.css
+|       SoilHealth.tsx
+|       SoilHealthMonitoring.css
+|       SoilHealthMonitoring.tsx
+|       
+\---mockups
+        5e93410d-fa41-45ba-b8c2-7a943ea9d334.png
+        Bidding.png
+        DALL·E 2024-06-30 21.51.35 - Create a professional and highly sophisticated UI_UX mockup for a desktop website of an agricultural app named 'Krishi Mitra'. The design should featu.webp
+        DALL·E 2024-07-01 11.18.26 - A soil health monitoring dashboard with a clean and modern design in light mode, using Arial font and English text. The dashboard includes sections_ O.webp
+        DALL·E 2024-07-01 11.44.04 - A soil health monitoring dashboard with a clean and modern design in light mode, using Arial font and English text. The dashboard includes sections_ O.webp
+        DALL·E 2024-07-01 12.27.51 - A 2D soil health monitoring dashboard with a clean and modern design in light mode, inspired by the provided image. The dashboard uses Arial font and .webp
+        DALL·E 2024-07-01 15.34.53 - Create an ultra-HD 4K desktop UI_UX mockup for the Profile section of the 'Krishi Mitra' agricultural app. The interface should be clean and modern, s.webp
+        Farm Progress.png
+        flow chart.png
+        homepage1.jpg
+        homepage2.jpg
+        KrishiMitra (3).png
+        KrishiMitra _ F2 .docx
+        Krishimitra.docx
+        Logo.jpg
+        Profile - Krishi Mitra (1).png
+        Profile Section.jpg
+        profile section2.jpg
+        profile.jpg
+        soil health monitoring new.jpg
+        soil health monitoring.jpg
+        Soil Health Monitoring.png
+        soil.jpg
+        Statistics (1).png
+        

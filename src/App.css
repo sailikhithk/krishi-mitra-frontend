@@ -9,7 +9,7 @@
   .page-content {
     flex: 1;
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px; /* Ensuring consistent max-width */
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
@@ -21,3 +21,4 @@
       padding: 1rem 2rem;
     }
   }
+  
