@@ -1,30 +1,34 @@
+/* HomePage.css */
+
 .home-page {
     font-family: Arial, sans-serif;
     width: 100%;
-}
-
-header {
+  }
+  
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: #fff;
-}
-
-.logo {
+    max-width: 1200px; /* Ensuring consistent max-width */
+    margin: 0 auto;
+  }
+  
+  .logo {
     font-weight: bold;
     font-size: 1.5rem;
-}
-
-.explore-features {
+  }
+  
+  .explore-features {
     background-color: #2e7d32;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
-}
-
-.hero {
+  }
+  
+  .hero {
     background-image: url('../assets/farmer.png');
     background-size: cover;
     background-position: center;
@@ -35,61 +39,62 @@ header {
     align-items: center;
     color: white;
     text-align: center;
-}
-
-.hero h1 {
+  }
+  
+  .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-}
-
-.search-bar {
+  }
+  
+  .search-bar {
     display: flex;
     width: 50%;
     max-width: 600px;
-}
-
-.search-bar input {
+  }
+  
+  .search-bar input {
     flex-grow: 1;
     padding: 0.5rem;
     border: none;
-}
-
-.search-bar button {
+  }
+  
+  .search-bar button {
     background-color: #2e7d32;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
-}
-
-.features {
+  }
+  
+  .features {
     display: flex;
     justify-content: space-around;
     padding: 2rem;
     background-color: #f0f4c3;
-}
-
-.feature {
+  }
+  
+  .feature {
     text-align: center;
-}
-
-.feature-icon {
+  }
+  
+  .feature-icon {
     font-size: 3rem;
     color: #2e7d32;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem;
-}
-
-.hub-grid button{
+  }
+  
+  .hub-grid button {
     position: absolute;
     margin-left: 30ch;
     background-color: #2e7d32;
     border: none;
     padding: 0.25rem 0.5rem;
     cursor: pointer;
-}
+  }
+  

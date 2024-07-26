@@ -1,15 +1,17 @@
+/* Profile.css */
+
 .profile-logo {
     text-align: left;
-}
-
-.profile-logo img {
+  }
+  
+  .profile-logo img {
     width: 100px;
     height: 100px;
-
-    
-}
-
-.form-control{
+  }
+  
+  .form-control {
     width: auto;
-}
-
+    max-width: 1200px; /* Ensuring consistent max-width */
+    margin: 0 auto;
+  }
+  

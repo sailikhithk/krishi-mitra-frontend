@@ -1,3 +1,5 @@
+/* BiddingProcess.css */
+
 .bidding-process {
   font-family: Arial, sans-serif;
 }
@@ -59,6 +61,8 @@
 .bidding-platform {
   background-color: #4caf50;
   padding: 2rem;
+  max-width: 1200px; /* Ensuring consistent max-width */
+  margin: 0 auto;
 }
 
 .schemes-header {

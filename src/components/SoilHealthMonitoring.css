@@ -1,3 +1,5 @@
+/* SoilHealthMonitoring.css */
+
 .soil-health-monitoring {
   font-family: Arial, sans-serif;
   color: #333;
@@ -6,7 +8,7 @@
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1200px; /* Ensuring consistent max-width */
   margin: 0 auto;
   padding: 2rem;
 }
@@ -36,7 +38,7 @@
   background-color: #fff;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -62,7 +64,7 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .metric:hover, .metric.active {
@@ -81,7 +83,7 @@
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .metric-details {
@@ -133,7 +135,7 @@
   background-color: #fff;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chart-container h4 {
