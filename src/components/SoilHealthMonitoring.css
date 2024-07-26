@@ -16,10 +16,6 @@
   margin-bottom: 1.5rem;
 }
 
-.main-content {
-  width: 100%;
-}
-
 .farm-image {
   height: 200px;
   background-image: url('../assets/farm.jpg');
@@ -36,7 +32,7 @@
 }
 
 .score-chart {
-  flex: 0 0 calc(50% - 1rem);
+  flex: 0 0 48%;
   background-color: #fff;
   border-radius: 8px;
   padding: 1.5rem;
@@ -133,7 +129,7 @@
 
 .chart-container {
   flex: 1;
-  min-width: calc(50% - 0.5rem);
+  min-width: 300px;
   background-color: #fff;
   border-radius: 8px;
   padding: 1.5rem;
@@ -180,12 +176,6 @@ h2 {
 h3 {
   color: #1b5e20;
   margin-bottom: 0.5rem;
-}
-
-@media (max-width: 1200px) {
-  .content {
-    padding: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
