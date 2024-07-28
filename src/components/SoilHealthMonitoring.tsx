@@ -6,6 +6,10 @@ import { GiMeshBall } from 'react-icons/gi';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import Navbar from './Navbar';
+import PieCharts from "./PieCharts";
+import BarCharts from "./BarCharts";
+import AreaCharts from "./AreaChart";
+import LineCharts from "./LineChart";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -84,6 +88,16 @@ const SoilHealthMonitoring = () => {
       },
     ],
   };
+
+  const soiltestingresults = [
+    { image: "path_to_image1.jpg", title: "Capsicum" },
+    { image: "path_to_image1.jpg", title: "Chilli" },
+    { image: "path_to_image1.jpg", title: "Bell pepper" },
+    { image: "path_to_image1.jpg", title: "Spinach" },
+    { image: "path_to_image1.jpg", title: "Tomato" },
+    { image: "path_to_image1.jpg", title: "Potato" },
+    { image: "path_to_image1.jpg", title: "Radish" },
+  ];
 
   const renderMetricDetails = () => {
     switch (selectedMetric) {
@@ -193,6 +207,58 @@ const SoilHealthMonitoring = () => {
             <div className="soil-health-results">
               <h2>Soil Health Analysis</h2>
               {renderMetricDetails()}
+            </div>
+
+            <div className="row">
+              <div className="col-md-6 col-sm-6">
+                <div className="overallscore">
+                  <PieCharts />
+                  <h4>Overall Score</h4>
+                </div>
+                <div className="projectedscore">
+                  <PieCharts />
+                  <h4>Projected Score</h4>
+                </div>
+              </div>
+            </div>
+
+            <div className="soiltest-results">
+              <h2>Soil Testing Results</h2>
+              <div className="hub-grid">
+                {soiltestingresults.map((item, index) => (
+                  <div key={index} className="hub-item">
+                    <img src={item.image} alt={item.title} />
+                    <h5>{item.title}</h5>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-3 col-sm-3">
+                <div className="overallscore">
+                  <BarCharts />
+                  <h4>Soil Testing results</h4>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-3">
+                <div className="projectedscore">
+                  <BarCharts />
+                  <h4>Fertilizers Results</h4>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-3">
+                <div className="overallscore">
+                  <AreaCharts />
+                  <h4>Crop Yield</h4>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-3">
+                <div className="projectedscore">
+                  <LineCharts />
+                  <h4>Temperature</h4>
+                </div>
+              </div>
             </div>
 
             <div className="recommendations">
