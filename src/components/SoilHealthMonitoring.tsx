@@ -173,83 +173,84 @@ const SoilHealthMonitoring = () => {
     <div className="soil-health-monitoring">
       <Navbar />
       <div className="content">
-        <div className="main-content">
-          {!showHistory ? (
-            <>
-              <div className="farm-image"></div>
+        {!showHistory ? (
+          <>
+            <div className="farm-image"></div>
 
-              <div className="soil-metrics">
-                {metrics.map((metric) => (
-                  <div 
-                    key={metric.value} 
-                    className={`metric ${selectedMetric === metric.value ? 'active' : ''}`}
-                    onClick={() => setSelectedMetric(metric.value)}
-                  >
-                    {metric.icon}
-                    <span>{metric.name}</span>
+            <div className="soil-metrics">
+              {metrics.map((metric) => (
+                <div 
+                  key={metric.value} 
+                  className={`metric ${selectedMetric === metric.value ? 'active' : ''}`}
+                  onClick={() => setSelectedMetric(metric.value)}
+                >
+                  {metric.icon}
+                  <span>{metric.name}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="soil-health-results">
+              <h2>Soil Health Analysis</h2>
+              {renderMetricDetails()}
+            </div>
+
+            <div className="recommendations">
+              <h2>Recommendations</h2>
+              <div className="recommendation-icons">
+                {recommendations.map((rec, index) => (
+                  <div key={index} className="icon-item">
+                    {rec.icon}
+                    <span>{rec.name}</span>
                   </div>
                 ))}
               </div>
-
-              <div className="soil-health-results">
-                <h2>Soil Health Analysis</h2>
-                {renderMetricDetails()}
-              </div>
-
-              <div className="recommendations">
-                <h2>Recommendations</h2>
-                <div className="recommendation-icons">
-                  {recommendations.map((rec, index) => (
-                    <div key={index} className="icon-item">
-                      {rec.icon}
-                      <span>{rec.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="historical-data">
-                <h2>Historical Data</h2>
-                <FaChartBar size={24} />
-                <p>View trends and patterns in your soil health over time</p>
-                <button className="view-history" onClick={() => setShowHistory(true)}>View History</button>
-              </div>
-            </>
-          ) : (
-            <div className="historical-view">
-              <h2>Soil Health Historical Data</h2>
-              <div className="chart-container">
-                <Line 
-                  data={historicalData}
-                  options={{
-                    responsive: true,
-                    plugins: {
-                      legend: {
-                        position: 'top',
-                      },
-                      title: {
-                        display: true,
-                        text: 'Soil Health Trends',
-                      },
-                    },
-                  }}
-                />
-              </div>
-              <div className="historical-summary">
-                <h3>Summary</h3>
-                <ul>
-                  <li>pH levels have remained stable within the optimal range (6.0-7.5)</li>
-                  <li>Soil moisture has fluctuated seasonally but stayed within acceptable limits</li>
-                  <li>Organic matter content has shown a gradual increase over the year</li>
-                </ul>
-              </div>
-              <button className="back-button" onClick={() => setShowHistory(false)}>
-                <FaArrowLeft /> Back to Dashboard
-              </button>
             </div>
-          )}
-        </div>
+
+            <div className="historical-data">
+              <h2>Historical Data</h2>
+              <FaChartBar size={24} />
+              <p>View trends and patterns in your soil health over time</p>
+              <button className="view-history" onClick={() => setShowHistory(true)}>View History</button>
+            </div>
+          </>
+        ) : (
+          <div className="historical-view">
+            <h2>Soil Health Historical Data</h2>
+            <div className="chart-container">
+              <Line 
+                data={historicalData}
+                options={{
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      position: 'top',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Soil Health Trends',
+                    },
+                  },
+                }}
+              />
+            </div>
+            <div className="historical-summary">
+              <h3>Summary</h3>
+              <ul>
+                <li>pH levels have remained stable within the optimal range (6.0-7.5)</li>
+                <li>Soil moisture has fluctuated seasonally but stayed within acceptable limits</li>
+                <li>Organic matter content has shown a gradual increase over the year</li>
+              </ul>
+            </div>
+            <button className="back-button" onClick={() => setShowHistory(false)}>
+              <FaArrowLeft /> Back to Dashboard
+            </button>
+          </div>
+        )}
       </div>
+      <footer>
+        <p>© 2024 Farmer Dashboard. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
