@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Profile.css";
 import Navbar from "./Navbar";
-import ImageUploader from "./ImageUploader";
+import ImageUploader from "./Imageuploader";
 import { FaEdit, FaEye } from 'react-icons/fa';
 
 function Profile() {
