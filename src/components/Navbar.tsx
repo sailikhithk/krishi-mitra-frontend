@@ -1,16 +1,23 @@
 // src/components/Navbar.tsx
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/Logo.jpg';
-import { FaBars, FaTimes, FaUser, FaCog, FaBell } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaCog, FaBell, FaSignOutAlt } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const toggleMenu = (): void => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    // Implement logout logic here
+    // For example: clear local storage, reset auth state, etc.
+    navigate('/login');
   };
 
   return (
@@ -32,6 +39,7 @@ const Navbar: React.FC = () => {
             <Link to="/profile"><FaUser className="icon" /></Link>
             <FaCog className="icon" />
             <FaBell className="icon" />
+            <FaSignOutAlt className="icon" onClick={handleLogout} />
           </div>
           <div className="auth-links">
             <Link to="/login" onClick={toggleMenu}>Login</Link>
