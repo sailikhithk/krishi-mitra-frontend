@@ -173,15 +173,6 @@ const SoilHealthMonitoring = () => {
     <div className="soil-health-monitoring">
       <Navbar />
       <div className="content">
-        <header>
-          <h1>Soil Health Monitoring</h1>
-          <div className="header-icons">
-            <span className="icon">👤</span>
-            <span className="icon">⚙️</span>
-            <span className="icon">🔔</span>
-          </div>
-        </header>
-
         <div className="main-content">
           {!showHistory ? (
             <>
