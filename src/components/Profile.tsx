@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Profile.css";
 import Navbar from "./Navbar";
-import ImageUploader from "./Imageupload";
+import ImageUploader from "./ImageUploader";
 import { FaEdit, FaEye } from 'react-icons/fa';
 
 function Profile() {
@@ -10,9 +10,7 @@ function Profile() {
       <Navbar />
       <div className="profile-content">
         <div className="profile-sidebar">
-          <div className="profile-image-container">
-            <ImageUploader />
-          </div>
+          <ImageUploader />
           <h2>Farmer</h2>
           <div className="profile-buttons">
             <button className="profile-button"><FaEdit /> Edit Profile</button>

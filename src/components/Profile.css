@@ -21,14 +21,6 @@
     align-items: center;
   }
   
-  .profile-image-container {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  
   .profile-buttons {
     display: flex;
     gap: 1rem;
