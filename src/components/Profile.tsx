@@ -9,14 +9,6 @@ function Profile() {
   return (
     <div className="profile-page">
       <Navbar />
-      <div className="profile-header">
-        <h1>Edit Profile</h1>
-        <div className="profile-actions">
-          <button className="action-button"><FaCog /> Settings</button>
-          <button className="action-button"><FaBell /> Notifications</button>
-          <button className="action-button"><FaSignOutAlt /> Logout</button>
-        </div>
-      </div>
       <div className="profile-content">
         <div className="profile-sidebar">
           <div className="logo-container">
