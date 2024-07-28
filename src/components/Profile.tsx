@@ -2,8 +2,7 @@ import React from 'react';
 import "./Profile.css";
 import Navbar from "./Navbar";
 import ImageUploader from "./Imageupload";
-import logo from "../assets/Logo.jpg";
-import { FaCog, FaBell, FaSignOutAlt, FaEdit, FaEye } from 'react-icons/fa';
+import { FaEdit, FaEye } from 'react-icons/fa';
 
 function Profile() {
   return (
@@ -11,9 +10,6 @@ function Profile() {
       <Navbar />
       <div className="profile-content">
         <div className="profile-sidebar">
-          <div className="logo-container">
-            <img src={logo} alt="Krishi Mitra Logo" className="profile-logo" />
-          </div>
           <div className="profile-image-container">
             <ImageUploader />
           </div>
