@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
         </ul>
         <div className="navbar-actions">
           <div className="header-icons">
-            <FaUser className="icon" />
+            <Link to="/profile"><FaUser className="icon" /></Link>
             <FaCog className="icon" />
             <FaBell className="icon" />
           </div>
