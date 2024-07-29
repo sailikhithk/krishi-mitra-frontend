@@ -209,16 +209,14 @@ const SoilHealthMonitoring = () => {
               {renderMetricDetails()}
             </div>
 
-            <div className="row">
-              <div className="col-md-6 col-sm-6">
-                <div className="overallscore">
-                  <PieCharts />
-                  <h4>Overall Score</h4>
-                </div>
-                <div className="projectedscore">
-                  <PieCharts />
-                  <h4>Projected Score</h4>
-                </div>
+            <div className="score-graphs">
+              <div className="score-graph">
+                <h4>Overall Score</h4>
+                <PieCharts />
+              </div>
+              <div className="score-graph">
+                <h4>Projected Score</h4>
+                <PieCharts />
               </div>
             </div>
 
@@ -234,30 +232,22 @@ const SoilHealthMonitoring = () => {
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-md-3 col-sm-3">
-                <div className="overallscore">
-                  <BarCharts />
-                  <h4>Soil Testing results</h4>
-                </div>
+            <div className="chart-row">
+              <div className="chart-column">
+                <BarCharts />
+                <h4>Soil Testing results</h4>
               </div>
-              <div className="col-md-3 col-sm-3">
-                <div className="projectedscore">
-                  <BarCharts />
-                  <h4>Fertilizers Results</h4>
-                </div>
+              <div className="chart-column">
+                <BarCharts />
+                <h4>Fertilizers Results</h4>
               </div>
-              <div className="col-md-3 col-sm-3">
-                <div className="overallscore">
-                  <AreaCharts />
-                  <h4>Crop Yield</h4>
-                </div>
+              <div className="chart-column">
+                <AreaCharts />
+                <h4>Crop Yield</h4>
               </div>
-              <div className="col-md-3 col-sm-3">
-                <div className="projectedscore">
-                  <LineCharts />
-                  <h4>Temperature</h4>
-                </div>
+              <div className="chart-column">
+                <LineCharts />
+                <h4>Temperature</h4>
               </div>
             </div>
 
