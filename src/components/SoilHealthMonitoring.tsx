@@ -5,10 +5,15 @@ import { RiPlantFill } from 'react-icons/ri';
 import { GiMeshBall } from 'react-icons/gi';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import Navbar from './Navbar';
+import PieCharts from "./PieCharts";
+import BarCharts from "./BarCharts";
+import AreaCharts from "./AreaChart";
+import LineCharts from "./LineChart";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const SoilHealthMonitoring: React.FC = () => {
+const SoilHealthMonitoring = () => {
   const [selectedMetric, setSelectedMetric] = useState('soil-testing');
   const [showHistory, setShowHistory] = useState(false);
 
@@ -83,6 +88,16 @@ const SoilHealthMonitoring: React.FC = () => {
       },
     ],
   };
+
+  const soiltestingresults = [
+    { image: "path_to_image1.jpg", title: "Capsicum" },
+    { image: "path_to_image1.jpg", title: "Chilli" },
+    { image: "path_to_image1.jpg", title: "Bell pepper" },
+    { image: "path_to_image1.jpg", title: "Spinach" },
+    { image: "path_to_image1.jpg", title: "Tomato" },
+    { image: "path_to_image1.jpg", title: "Potato" },
+    { image: "path_to_image1.jpg", title: "Radish" },
+  ];
 
   const renderMetricDetails = () => {
     switch (selectedMetric) {
@@ -170,17 +185,8 @@ const SoilHealthMonitoring: React.FC = () => {
 
   return (
     <div className="soil-health-monitoring">
-      <header>
-        <div className="logo">Krishi Mitra</div>
-        <h1>Soil Health Monitoring</h1>
-        <div className="header-icons">
-          <span className="icon">👤</span>
-          <span className="icon">⚙️</span>
-          <span className="icon">🔔</span>
-        </div>
-      </header>
-
-      <div className="main-content">
+      <Navbar />
+      <div className="content">
         {!showHistory ? (
           <>
             <div className="farm-image"></div>
@@ -201,6 +207,48 @@ const SoilHealthMonitoring: React.FC = () => {
             <div className="soil-health-results">
               <h2>Soil Health Analysis</h2>
               {renderMetricDetails()}
+            </div>
+
+            <div className="score-graphs">
+              <div className="score-graph">
+                <h4>Overall Score</h4>
+                <PieCharts />
+              </div>
+              <div className="score-graph">
+                <h4>Projected Score</h4>
+                <PieCharts />
+              </div>
+            </div>
+
+            <div className="soiltest-results">
+              <h2>Soil Testing Results</h2>
+              <div className="hub-grid">
+                {soiltestingresults.map((item, index) => (
+                  <div key={index} className="hub-item">
+                    <img src={item.image} alt={item.title} />
+                    <h5>{item.title}</h5>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="chart-row">
+              <div className="chart-column">
+                <BarCharts />
+                <h4>Soil Testing results</h4>
+              </div>
+              <div className="chart-column">
+                <BarCharts />
+                <h4>Fertilizers Results</h4>
+              </div>
+              <div className="chart-column">
+                <AreaCharts />
+                <h4>Crop Yield</h4>
+              </div>
+              <div className="chart-column">
+                <LineCharts />
+                <h4>Temperature</h4>
+              </div>
             </div>
 
             <div className="recommendations">
@@ -232,7 +280,7 @@ const SoilHealthMonitoring: React.FC = () => {
                   responsive: true,
                   plugins: {
                     legend: {
-                      position: 'top' as const,
+                      position: 'top',
                     },
                     title: {
                       display: true,
@@ -256,6 +304,9 @@ const SoilHealthMonitoring: React.FC = () => {
           </div>
         )}
       </div>
+      <footer>
+        <p>© 2024 Farmer Dashboard. All rights reserved.</p>
+      </footer>
     </div>
   );
 };

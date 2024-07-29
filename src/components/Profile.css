@@ -1,0 +1,101 @@
+.profile-page {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-content {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    flex: 1;
+  }
+  
+  .profile-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .profile-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .profile-details {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .profile-section {
+    background-color: #c8e6c9;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .profile-section h3 {
+    margin-top: 0;
+    color: #2e7d32;
+  }
+  
+  .notification-buttons,
+  .account-buttons,
+  .language-buttons,
+  .support-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .notification-buttons button,
+  .account-buttons button,
+  .language-buttons button,
+  .support-buttons button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .document-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .document-item button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+  }

@@ -1,34 +1,12 @@
 .soil-health-monitoring {
   font-family: Arial, sans-serif;
   color: #333;
-  background-color: #f0f4c3; /* Matching the HomePage background */
-  min-height: 100vh;
+  width: 100%;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #2e7d32;
-}
-
-.header-icons {
-  display: flex;
-  gap: 1rem;
-}
-
-.main-content {
+.content {
+  background-color: #f0f4c3;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .farm-image {
@@ -61,7 +39,7 @@ header {
 }
 
 .metric:hover, .metric.active {
-  background-color: #dce775; /* Lighter shade for hover/active state */
+  background-color: #dce775;
   transform: translateY(-5px);
 }
 
@@ -94,6 +72,75 @@ header {
 .progress-bar .progress {
   height: 100%;
   background-color: #4caf50;
+}
+
+.score-graphs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.score-graph {
+  flex: 0 0 48%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.score-graph h4 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.soiltest-results {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.hub-item {
+  text-align: center;
+}
+
+.hub-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.hub-item h5 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-column {
+  flex: 0 0 25%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.chart-column h4 {
+  text-align: center;
+  color: #2e7d32;
+  margin-top: 1rem;
 }
 
 .recommendation-icons {
@@ -154,4 +201,40 @@ h2 {
 h3 {
   color: #1b5e20;
   margin-bottom: 0.5rem;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .chart-column {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .score-graphs {
+    flex-direction: column;
+  }
+
+  .score-graph {
+    flex: 0 0 100%;
+    margin-bottom: 1rem;
+  }
+
+  .chart-column {
+    flex: 0 0 100%;
+  }
+
+  .soil-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .recommendation-icons {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 }

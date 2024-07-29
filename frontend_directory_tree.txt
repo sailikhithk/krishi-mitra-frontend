@@ -29,9 +29,7 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 +---components
 |       AppDownload.css
 |       AppDownload.tsx
-|       AreaChart.tsx
 |       AuthPages.css
-|       BarCharts.tsx
 |       BiddingProcess.css
 |       BiddingProcess.tsx
 |       CropVarieties.tsx
@@ -41,21 +39,14 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       HistoricalData.jsx
 |       HomePage.css
 |       HomePage.tsx
-|       Imageupload.tsx
 |       KnowledgeHub.css
 |       KnowledgeHub.tsx
-|       LineChart.tsx
 |       LoginPage.css
 |       LoginPage.tsx
 |       Navbar.css
 |       Navbar.tsx
-|       PieCharts.tsx
-|       Profile.css
-|       Profile.tsx
 |       SignupPage.css
 |       SignupPage.tsx
-|       SoilHealth.css
-|       SoilHealth.tsx
 |       SoilHealthMonitoring.css
 |       SoilHealthMonitoring.tsx
 |       
