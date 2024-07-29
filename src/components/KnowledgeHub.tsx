@@ -1,11 +1,10 @@
 import React from "react";
 import "./KnowledgeHub.css";
-import AppDownload from "./AppDownload";
 
-// Import images
-import governmentSchemes from "../assets/AP-Government-Schemes-List.webp";
-import education from "../assets/education.png";
-import tractors from "../assets/tractors.jpg";
+// Import resized images
+import governmentSchemes from "../assets/AP-Government-Schemes-List.jpg";
+import learn from "../assets/education (1).jpg";
+import trackOrders from "../assets/tractors.jpg";
 import rateUs from "../assets/rate-us.jpg";
 
 function KnowledgeHub() {
@@ -16,12 +15,12 @@ function KnowledgeHub() {
       description: "Discover available schemes nearby",
     },
     {
-      image: education,
+      image: learn,
       title: "Learn",
       description: "Educational farming tips",
     },
     {
-      image: tractors,
+      image: trackOrders,
       title: "Track orders",
       description: "Track your transactions easily",
     },
