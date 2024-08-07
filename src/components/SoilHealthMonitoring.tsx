@@ -11,6 +11,16 @@ import BarCharts from "./BarCharts";
 import AreaCharts from "./AreaChart";
 import LineCharts from "./LineChart";
 
+// Import images
+import farmImage from '../assets/farm.jpg';
+import bellpepperImage from '../assets/bellpepper.webp';
+import capsicumImage from '../assets/capsicum.jpg';
+import chilliImage from '../assets/chilli.webp';
+import spinachImage from '../assets/spinach.webp';
+import tomatoImage from '../assets/tomato.webp';
+import potatoImage from '../assets/potato.webp';
+import radishImage from '../assets/radish.webp';
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const SoilHealthMonitoring = () => {
@@ -90,13 +100,13 @@ const SoilHealthMonitoring = () => {
   };
 
   const soiltestingresults = [
-    { image: "path_to_image1.jpg", title: "Capsicum" },
-    { image: "path_to_image1.jpg", title: "Chilli" },
-    { image: "path_to_image1.jpg", title: "Bell pepper" },
-    { image: "path_to_image1.jpg", title: "Spinach" },
-    { image: "path_to_image1.jpg", title: "Tomato" },
-    { image: "path_to_image1.jpg", title: "Potato" },
-    { image: "path_to_image1.jpg", title: "Radish" },
+    { image: capsicumImage, title: "Capsicum" },
+    { image: chilliImage, title: "Chilli" },
+    { image: bellpepperImage, title: "Bell pepper" },
+    { image: spinachImage, title: "Spinach" },
+    { image: tomatoImage, title: "Tomato" },
+    { image: potatoImage, title: "Potato" },
+    { image: radishImage, title: "Radish" },
   ];
 
   const renderMetricDetails = () => {
@@ -189,7 +199,7 @@ const SoilHealthMonitoring = () => {
       <div className="content">
         {!showHistory ? (
           <>
-            <div className="farm-image"></div>
+            <div className="farm-image" style={{backgroundImage: `url(${farmImage})`}}></div>
 
             <div className="soil-metrics">
               {metrics.map((metric) => (

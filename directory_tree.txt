@@ -10,9 +10,12 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |   vite-env.d.ts
 |   
 +---assets
+|       AP-Government-Schemes-List.webp
 |       app-store.png
 |       biddingprocess.png
 |       buyerconnections.png
+|       capsicum.jpg
+|       education.png
 |       farm.jpg
 |       farmer.png
 |       google-playstore.png
@@ -23,7 +26,10 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       irrigation.png
 |       Logo.jpg
 |       pesticidemanagement.png
+|       ploughing.jpg
+|       rate-us.jpg
 |       react.svg
+|       tractors.jpg
 |       vendorinteractions.png
 |       
 +---components
@@ -41,7 +47,8 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       HistoricalData.jsx
 |       HomePage.css
 |       HomePage.tsx
-|       Imageupload.tsx
+|       ImageUploader.css
+|       ImageUploader.tsx
 |       KnowledgeHub.css
 |       KnowledgeHub.tsx
 |       LineChart.tsx
