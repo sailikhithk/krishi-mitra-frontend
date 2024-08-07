@@ -13,7 +13,8 @@ import LineCharts from "./LineChart";
 
 // Import images
 import farmImage from '../assets/farm.jpg';
-import capsicumImage from '../assets/bellpepper.webp';
+import bellpepperImage from '../assets/bellpepper.webp';
+import capsicumImage from '../assets/capsicum.jpg';
 import chilliImage from '../assets/chilli.webp';
 import spinachImage from '../assets/spinach.webp';
 import tomatoImage from '../assets/tomato.webp';
@@ -101,7 +102,7 @@ const SoilHealthMonitoring = () => {
   const soiltestingresults = [
     { image: capsicumImage, title: "Capsicum" },
     { image: chilliImage, title: "Chilli" },
-    { image: capsicumImage, title: "Bell pepper" },
+    { image: bellpepperImage, title: "Bell pepper" },
     { image: spinachImage, title: "Spinach" },
     { image: tomatoImage, title: "Tomato" },
     { image: potatoImage, title: "Potato" },
