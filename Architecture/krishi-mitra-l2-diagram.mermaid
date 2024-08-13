@@ -1,0 +1,22 @@
+graph TD
+    A[Web App] --> B[API Gateway]
+    C[Mobile App] --> B
+    G[Admin Panel] --> B
+    B --> D[Auth Service]
+    B --> E[Soil Health Service]
+    B --> F[Weather Service]
+    B --> H[Market Price Service]
+    B --> I[Bidding Service]
+    B --> J[Gov Schemes Service]
+    B --> K[Educational Resources Service]
+    B --> L[Financial Services]
+    B --> M[Vendor Management Service]
+    D & E & F & H & I & J & K & L & M --> N[Cache Layer]
+    D & E & F & H & I & J & K & L & M --> O[Database]
+    F --> P[Weather API]
+    H --> Q[Market Data API]
+    L --> R[Payment Gateway]
+    S[Message Queue] --> T[Notification Service]
+    D & E & F & H & I & J & K & L & M --> S
+    U[CDN] --> A
+    U --> C
