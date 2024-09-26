@@ -8,6 +8,7 @@ import BiddingProcess from './components/BiddingProcess';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import Profile from './components/Profile';
+import Dashboard from './components/Dashboard';  // Import Dashboard
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />  // Add Dashboard route
         </Routes>
       </div>
     </Router>
