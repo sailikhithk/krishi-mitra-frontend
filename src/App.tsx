@@ -9,7 +9,7 @@ import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
-import VendorDashboard from './components/VendorDashboard';  // This import should now work
+import VendorDashboard from './components/VendorDashboard';
 import './App.css';
 
 function App() {

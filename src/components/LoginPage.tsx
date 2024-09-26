@@ -28,8 +28,10 @@ const LoginPage: React.FC = () => {
       localStorage.setItem('userRole', userType);
 
       if (userType === 'vendor') {
+        console.log('Navigating to vendor dashboard');  // Add this line
         navigate('/vendor-dashboard');
       } else {
+        console.log('Navigating to farmer dashboard');  // Add this line
         navigate('/dashboard');
       }
     } catch (error: any) {
