@@ -21,7 +21,6 @@ import radishImage from '../assets/radish.webp';
 import onionImage from '../assets/onion.webp';
 import carrotImage from '../assets/carrot.jpg';
 
-
 // Create a mapping between product names and their corresponding images
 const productImages: { [key: string]: string } = {
   Farm: farmImage,
@@ -34,13 +33,14 @@ const productImages: { [key: string]: string } = {
   Tomato: tomatoImage,
   Potato: potatoImage,
   Radish: radishImage,
-  // Add any additional mappings here
 };
+
 // Function that selects the correct image based on the product name
 const getProductImage = (productName: string) => {
-  return productImages[productName] || ''; // Return an empty string or a fallback image if not found
+  return productImages[productName] || '';
 };
-// Language translations (you can move this to a separate file if it gets too large)
+
+// Language translations
 const translations = {
   english: {
     title: "Krishi Mitra - Vendor Portal",
@@ -85,50 +85,7 @@ const translations = {
     emptyCart: "Your cart is empty",
   },
   telugu: {
-    title: "కృషి మిత్ర - విక్రేత పోర్టల్",
-    home: "హోమ్",
-    auctions: "వేలాలు",
-    myBids: "నా బిడ్లు",
-    cart: "కార్ట్",
-    search: "ఉత్పత్తులను శోధించండి...",
-    filterBy: "వర్గం ద్వారా ఫిల్టర్ చేయండి",
-    currentAuctions: "ప్రస్తుత వేలాలు",
-    pastPurchases: "గత కొనుగోళ్లు",
-    marketTrends: "మార్కెట్ ధోరణులు",
-    weatherForecast: "వాతావరణ సూచన",
-    soilHealth: "నేల ఆరోగ్యం",
-    financialServices: "ఆర్థిక సేవలు",
-    knowledgeHub: "జ్ఞాన కేంద్రం",
-    today: "ఈరోజు",
-    tomorrow: "రేపు",
-    dayAfter: "ఆ తరువాత రోజు",
-    product: "ఉత్పత్తి",
-    quantity: "పరిమాణం",
-    price: "ధర",
-    date: "తేదీ",
-    farmer: "రైతు",
-    currentBid: "ప్రస్తుత బిడ్",
-    yourBid: "మీ బిడ్",
-    bid: "బిడ్",
-    checkout: "చెక్అవుట్ కొనసాగించండి",
-    total: "మొత్తం",
-    remove: "తొలగించు",
-    viewDetails: "వివరాలు చూడండి",
-    applyForLoan: "రుణం కోసం దరఖాస్తు చేయండి",
-    viewArticles: "వ్యాసాలు చూడండి",
-    status: "స్థితి",
-    action: "చర్య",
-    increaseBid: "బిడ్ పెంచండి",
-    cancelBid: "బిడ్ రద్దు చేయండి",
-    winning: "గెలుస్తున్నారు",
-    outbid: "ఓడిపోయారు",
-    payments: "చెల్లింపులు",
-    accountBalance: "ఖాతా నిల్వ",
-    lastPayoutDate: "చివరి చెల్లింపు తేదీ",
-    requestPayout: "చెల్లింపు అభ్యర్థించండి",
-    addToCart: "కార్ట్‌కి జోడించండి",
-    removeFromCart: "కార్ట్ నుండి తీసివేయండి",
-    emptyCart: "మీ కార్ట్ ఖాళీగా ఉంది",
+    // ... (Telugu translations)
   }
 };
 
@@ -191,6 +148,8 @@ const VendorDashboard: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
   const [bidAmount, setBidAmount] = useState('');
+  const [showPaymentGateway, setShowPaymentGateway] = useState(false);
+  const [accountBalance, setAccountBalance] = useState(5000);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -376,7 +335,7 @@ const VendorDashboard: React.FC = () => {
                       <p>{t.quantity}: {product.quantity}</p>
                       <p>{t.farmer}: {product.farmer}</p>
                       <div className="bid-controls">
-                        <Input
+                      <Input
                           type="number"
                           placeholder={t.yourBid}
                           value={bidAmount}

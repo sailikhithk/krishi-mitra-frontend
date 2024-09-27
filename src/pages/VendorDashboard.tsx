@@ -1,5 +1,8 @@
 import { Select } from "../components/ui/select"
 import { useState } from 'react'
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "../components/ui/dialog"
+import potatoImage from '../assets/potato.jpg'  // Adjust the path as needed
+import tomatoImage from '../assets/tomato.jpg'  // Adjust the path as needed
 
 function VendorDashboard() {
   const [value, setValue] = useState('')
@@ -9,6 +12,12 @@ function VendorDashboard() {
     setValue(newValue)
   }
 
+  const options = [
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+  ]
+
   return (
     <div>
       <h1>Vendor Dashboard</h1>
@@ -17,12 +26,27 @@ function VendorDashboard() {
           <Select.Value placeholder="Select an option" />
         </Select.Trigger>
         <Select.Content>
-          <Select.Item value="option1">Option 1</Select.Item>
-          <Select.Item value="option2">Option 2</Select.Item>
-          <Select.Item value="option3">Option 3</Select.Item>
+          {options.map((option) => (
+            <Select.Item key={option.value} value={option.value}>
+              {option.label}
+            </Select.Item>
+          ))}
         </Select.Content>
       </Select>
       <p>Selected value: {value}</p>
+      <Dialog>
+        <DialogContent>
+          <DialogTitle>Dialog Title</DialogTitle>
+          <DialogDescription>
+            This is a description of the dialog content.
+          </DialogDescription>
+          {/* Your dialog content here */}
+        </DialogContent>
+      </Dialog>
+      <div>
+        <img src={potatoImage} alt="Potato" />
+        <img src={tomatoImage} alt="Tomato" />
+      </div>
     </div>
   )
 }
