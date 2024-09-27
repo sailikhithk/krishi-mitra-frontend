@@ -1,8 +1,17 @@
 'use client'
 
-import React, { useState } from 'react';
-import './VendorDashboard.css';  // Add this line at the top of your file
-import styles from './VendorDashboard.css';
+import React, { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Badge } from "@/components/ui/badge"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ShoppingCart, Search, Filter, Star, Clock, TrendingUp, Sun, Droplets, Globe } from 'lucide-react'
+import Image from 'next/image'
+import './VendorDashboard.css'
+import styles from "./VendorDashboard.css?inline";
 
 interface Product {
   id: number;
@@ -13,6 +22,63 @@ interface Product {
   category: string;
   farmer: string;
   rating: number;
+}
+// Language translations
+const translations = {
+  english: {
+    title: "Krishi Mitra - Vendor Portal",
+    home: "Home",
+    auctions: "Auctions",
+    myBids: "My Bids",
+    cart: "Cart",
+    search: "Search products...",
+    filterBy: "Filter by category",
+    currentAuctions: "Current Auctions",
+    pastPurchases: "Past Purchases",
+    marketTrends: "Market Trends",
+    weatherForecast: "Weather Forecast",
+    today: "Today",
+    tomorrow: "Tomorrow",
+    dayAfter: "Day After",
+    product: "Product",
+    quantity: "Quantity",
+    price: "Price",
+    date: "Date",
+    farmer: "Farmer",
+    currentBid: "Current Bid",
+    yourBid: "Your bid",
+    bid: "Bid",
+    checkout: "Proceed to Checkout",
+    total: "Total",
+    remove: "Remove",
+  },
+  telugu: {
+    title: "కృషి మిత్ర - విక్రేత పోర్టల్",
+    home: "హోమ్",
+    auctions: "వేలాలు",
+    myBids: "నా బిడ్లు",
+    cart: "కార్ట్",
+    search: "ఉత్పత్తులను శోధించండి...",
+    filterBy: "వర్గం ద్వారా ఫిల్టర్ చేయండి",
+    currentAuctions: "ప్రస్తుత వేలాలు",
+    pastPurchases: "గత కొనుగోళ్లు",
+    marketTrends: "మార్కెట్ ధోరణులు",
+    weatherForecast: "వాతావరణ సూచన",
+    today: "ఈరోజు",
+    tomorrow: "రేపు",
+    dayAfter: "ఆ తరువాత రోజు",
+    product: "ఉత్పత్తి",
+    quantity: "పరిమాణం",
+    price: "ధర",
+    date: "తేదీ",
+    farmer: "రైతు",
+    currentBid: "ప్రస్తుత బిడ్",
+    yourBid: "మీ బిడ్",
+    bid: "బిడ్",
+    checkout: "చెక్అవుట్ కొనసాగించండి",
+    total: "మొత్తం",
+    remove: "తొలగించు",
+  }
 }
 
 const VendorDashboard: React.FC = () => {
