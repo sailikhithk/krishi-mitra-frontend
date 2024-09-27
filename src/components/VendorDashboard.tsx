@@ -8,9 +8,38 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Badge } from "../components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { ShoppingCart, Search, Filter, Star, Clock, TrendingUp, Sun, Droplets, Globe, Leaf, DollarSign, BarChart2, BookOpen, Cloud, CreditCard } from 'lucide-react';
-import Image from 'next/image';
 import './VendorDashboard.css';
+// Import images
+import farmImage from '../assets/farm.jpg';
+import bellpepperImage from '../assets/bellpepper.webp';
+import capsicumImage from '../assets/capsicum.jpg';
+import chilliImage from '../assets/chilli.webp';
+import spinachImage from '../assets/spinach.webp';
+import tomatoImage from '../assets/tomato.webp';
+import potatoImage from '../assets/potato.webp';
+import radishImage from '../assets/radish.webp';
+import onionImage from '../assets/onion.webp';
+import carrotImage from '../assets/carrot.jpg';
 
+
+// Create a mapping between product names and their corresponding images
+const productImages: { [key: string]: string } = {
+  Farm: farmImage,
+  Bellpepper: bellpepperImage,
+  Onions: onionImage,
+  Carrots: carrotImage,
+  Capsicum: capsicumImage,
+  Chilli: chilliImage,
+  Spinach: spinachImage,
+  Tomato: tomatoImage,
+  Potato: potatoImage,
+  Radish: radishImage,
+  // Add any additional mappings here
+};
+// Function that selects the correct image based on the product name
+const getProductImage = (productName: string) => {
+  return productImages[productName] || ''; // Return an empty string or a fallback image if not found
+};
 // Language translations (you can move this to a separate file if it gets too large)
 const translations = {
   english: {
@@ -326,8 +355,8 @@ const VendorDashboard: React.FC = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="product-image">
-                      <Image
-                        src={`/placeholder.svg?height=200&width=200&text=${product.name}`}
+                      <img
+                        src={getProductImage(product.name)}
                         alt={product.name}
                         width={200}
                         height={200}

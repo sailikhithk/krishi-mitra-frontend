@@ -1,11 +1,15 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
 
-const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(
+// Add this at the top of your main entry file
+(window as any).process = {
+  env: {
+    NODE_ENV: import.meta.env.MODE,
+  },
+};
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
