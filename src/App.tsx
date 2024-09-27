@@ -8,6 +8,8 @@ import BiddingProcess from './components/BiddingProcess';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import Profile from './components/Profile';
+import Dashboard from './components/Dashboard';
+import VendorDashboard from './components/VendorDashboard';
 import './App.css';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/vendor-dashboard" element={<VendorDashboard />} />
         </Routes>
       </div>
     </Router>

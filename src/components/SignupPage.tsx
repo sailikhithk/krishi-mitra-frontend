@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
-import './SignupPage.css';
+import './AuthPages.css';
 import logo from '../assets/Logo.jpg';
 
 const SignupPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userType, setUserType] = useState('farmer');
   const navigate = useNavigate();
 
   const handleSignup = async (e: React.FormEvent) => {
@@ -16,7 +17,8 @@ const SignupPage: React.FC = () => {
       const response = await api.post('/users/signup', {
         username,
         email,
-        hashed_password: password
+        password, // Changed from hashed_password to password
+        role: userType
       });
       console.log('Signup successful:', response.data);
       alert('Signup successful! Please log in.');
@@ -33,6 +35,26 @@ const SignupPage: React.FC = () => {
         <img src={logo} alt="Krishi Mitra Logo" className="auth-logo" />
         <h2>Join Krishi Mitra</h2>
         <form onSubmit={handleSignup} className="auth-form">
+          <div className="user-type-selection">
+            <label>
+              <input
+                type="radio"
+                value="farmer"
+                checked={userType === 'farmer'}
+                onChange={() => setUserType('farmer')}
+              />
+              Farmer
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="vendor"
+                checked={userType === 'vendor'}
+                onChange={() => setUserType('vendor')}
+              />
+              Vendor
+            </label>
+          </div>
           <input
             type="text"
             value={username}

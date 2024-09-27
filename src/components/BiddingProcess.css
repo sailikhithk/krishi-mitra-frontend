@@ -2,6 +2,29 @@
   font-family: Arial, sans-serif;
 }
 
+.status-open { color: #4caf50; /* green */ }
+.status-closed { color: #f44336; /* red */ }
+.status-pending { color: #ff9800; /* orange */ }
+.status-accepted { color: #2196f3; /* blue */ }
+.status-rejected { color: #9c27b0; /* purple */ }
+
+.bids-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.bid-card {
+  background-color: #f0f4c3;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.bid-card h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
 .hero {
   background-image: url('../assets/farmer.png');
   background-size: cover;
