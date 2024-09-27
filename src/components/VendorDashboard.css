@@ -1,141 +1,149 @@
 .vendor-dashboard {
   font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: red !important;
-  border: 5px solid blue !important;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e8f3e8, #c8e6c9);
+  position: relative;
+  overflow-x: hidden;
 }
 
-.vendor-dashboard h1 {
-  color: #2e7d32;
-  text-align: center;
-  margin-bottom: 30px;
+.dashboard-header {
+  background: linear-gradient(to right, #2e7d32, #1b5e20);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dashboard-header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.dashboard-main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .search-filter {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.search-filter input,
-.search-filter select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.search-filter input {
-  flex-grow: 1;
-  margin-right: 10px;
-}
-
-.product-list {
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.product-item {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+.product-image {
+  position: relative;
+  margin-bottom: 1rem;
 }
 
-.product-item:hover {
-  transform: translateY(-5px);
+.product-rating {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
 }
 
-.product-item h3 {
-  color: #2e7d32;
-  margin-top: 0;
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.product-item p {
-  margin: 5px 0;
-  color: #333;
+.time-left {
+  display: flex;
+  align-items: center;
+  color: #f59e0b;
 }
 
-.product-item input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.bid-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-.product-item button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.product-item button:hover {
-  background-color: #45a049;
-}
-
-.cart {
-  margin-top: 30px;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.cart h2 {
-  color: #2e7d32;
-  margin-top: 0;
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.cart-item:last-child {
-  border-bottom: none;
+.cart-total {
+  margin-top: 1rem;
+  font-weight: bold;
 }
 
-.cart-item button {
-  background-color: #f44336;
+.checkout-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.dashboard-footer {
+  background-color: #1b5e20;
   color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 1rem 0;
+  margin-top: 2rem;
 }
 
-.cart-item button:hover {
-  background-color: #d32f2f;
+.dashboard-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
+  .dashboard-header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .dashboard-header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .search-filter {
     flex-direction: column;
   }
 
-  .search-filter input,
-  .search-filter select {
-    width: 100%;
-    margin-bottom: 10px;
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 
-  .product-list {
+  .dashboard-widgets {
     grid-template-columns: 1fr;
   }
 }

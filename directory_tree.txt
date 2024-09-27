@@ -46,42 +46,53 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |       vendorinteractions.png
 |       
 +---components
-|       AppDownload.css
-|       AppDownload.tsx
-|       AreaChart.tsx
-|       AuthPages.css
-|       BarCharts.tsx
-|       BiddingProcess.css
-|       BiddingProcess.tsx
-|       CropVarieties.tsx
-|       Dashboard.tsx
-|       dummy
-|       GovernmentSchemes.css
-|       GovernmentSchemes.tsx
-|       HistoricalData.jsx
-|       HomePage.css
-|       HomePage.tsx
-|       ImageUploader.css
-|       ImageUploader.tsx
-|       KnowledgeHub.css
-|       KnowledgeHub.tsx
-|       krishi-mitra-frontend.code-workspace
-|       LineChart.tsx
-|       LoginPage.css
-|       LoginPage.tsx
-|       Navbar.css
-|       Navbar.tsx
-|       PieCharts.tsx
-|       Profile.css
-|       Profile.tsx
-|       SignupPage.css
-|       SignupPage.tsx
-|       SoilHealth.css
-|       SoilHealth.tsx
-|       SoilHealthMonitoring.css
-|       SoilHealthMonitoring.tsx
-|       VendorDashboard.tsx
-|       
+|   |   AppDownload.css
+|   |   AppDownload.tsx
+|   |   AreaChart.tsx
+|   |   AuthPages.css
+|   |   BarCharts.tsx
+|   |   BiddingProcess.css
+|   |   BiddingProcess.tsx
+|   |   CropVarieties.tsx
+|   |   Dashboard.tsx
+|   |   dummy
+|   |   GovernmentSchemes.css
+|   |   GovernmentSchemes.tsx
+|   |   HistoricalData.jsx
+|   |   HomePage.css
+|   |   HomePage.tsx
+|   |   ImageUploader.css
+|   |   ImageUploader.tsx
+|   |   KnowledgeHub.css
+|   |   KnowledgeHub.tsx
+|   |   krishi-mitra-frontend.code-workspace
+|   |   LineChart.tsx
+|   |   LoginPage.css
+|   |   LoginPage.tsx
+|   |   Navbar.css
+|   |   Navbar.tsx
+|   |   PieCharts.tsx
+|   |   Profile.css
+|   |   Profile.tsx
+|   |   SignupPage.css
+|   |   SignupPage.tsx
+|   |   SoilHealth.css
+|   |   SoilHealth.tsx
+|   |   SoilHealthMonitoring.css
+|   |   SoilHealthMonitoring.tsx
+|   |   VendorDashboard.css
+|   |   VendorDashboard.tsx
+|   |   
+|   \---ui
+|           badge.tsx
+|           button.tsx
+|           card.tsx
+|           dialog.tsx
+|           input.tsx
+|           select.tsx
+|           table.tsx
+|           tabs.tsx
+|           
 +---hooks
 +---mockups
 |       5e93410d-fa41-45ba-b8c2-7a943ea9d334.png
