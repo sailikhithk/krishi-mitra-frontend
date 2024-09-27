@@ -3,6 +3,47 @@
 ## Overview
 
 Krishi Mitra is a comprehensive digital platform designed to revolutionize farming practices in India. This Public-Private Partnership (PPP) model application aims to empower farmers with real-time information, tools, and resources to enhance agricultural productivity, sustainability, and profitability.
+### Key Components:
+
+- **Frontend**: React + Vite + TypeScript for web, native mobile apps for iOS and Android
+- **Backend**: FastAPI (Python) for the main application server
+- **Database**: PostgreSQL for primary data storage
+- **Authentication**: JWT and OAuth2 for secure user authentication
+- **Caching**: Redis for improved performance
+- **Message Queue**: RabbitMQ/Kafka for asynchronous processing
+- **Search Engine**: Elasticsearch for efficient data retrieval
+- **CDN**: For optimized content delivery
+- **Monitoring**: Prometheus and ELK stack for system health and analytics
+
+## Tech Stack
+
+Krishi Mitra leverages a modern and powerful tech stack:
+
+### Frontend
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+
+### Backend
+- FastAPI (Python)
+- PostgreSQL
+- Redis
+- Elasticsearch
+- RabbitMQ/Kafka
+
+### DevOps & Infrastructure
+- Docker
+- Kubernetes
+- AWS/Azure Cloud Services
+- Terraform for Infrastructure as Code
+
+### Monitoring & Logging
+- Prometheus
+- ELK Stack (Elasticsearch, Logstash, Kibana)
+
+### Machine Learning
+- TensorFlow/PyTorch for predictive analytics
 
 ## Key Features
 
