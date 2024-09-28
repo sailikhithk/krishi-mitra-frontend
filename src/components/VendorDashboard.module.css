@@ -298,6 +298,60 @@ body {
   font-size: 24px;
 }
 
+.trendIcon {
+  color: #ff9800; /* Orange for market trends */
+}
+
+.trendIcon.trendUp {
+  color: #4caf50; /* Green for upward trends */
+}
+
+.trendIcon.trendDown {
+  color: #f44336; /* Red for downward trends */
+}
+
+.weatherIcon {
+  color: #03a9f4; /* Light blue for weather */
+}
+
+.soilIcon {
+  color: #795548; /* Brown for soil */
+}
+
+.soilGood {
+  color: #4caf50; /* Green for good soil health */
+}
+
+.soilModerate {
+  color: #ff9800; /* Orange for moderate soil health */
+}
+
+.financeIcon {
+  color: #673ab7; /* Deep purple for finance */
+}
+
+.viewDetailsButton,
+.applyLoanButton,
+.viewArticlesButton {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.viewDetailsButton:hover,
+.viewArticlesButton:hover,
+.applyLoanButton:hover {
+  background-color: var(--hover-color);
+}
 .knowledgeHub {
   background-color: white;
   border-radius: 8px;
@@ -401,6 +455,27 @@ body {
   overflow: hidden;
 }
 
+.paymentTabsTrigger {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paymentTabsTrigger[data-state="active"] {
+  background-color: white;
+  font-weight: bold;
+}
+
+.paymentTabsTrigger img {
+  margin-right: 8px;
+}
+
 .paymentForm {
   display: flex;
   flex-direction: column;
@@ -425,17 +500,21 @@ body {
 }
 
 .paymentButton {
-  background-color: var(--secondary-color);
   color: white;
   padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.paymentButton:hover {
-  background-color: var(--hover-color);
+.upiButton {
+  background-color: #2d9c3c;
+}
+
+.upiButton:hover {
+  background-color: #237a2f;
 }
 
 .phonePeButton {
@@ -443,7 +522,7 @@ body {
 }
 
 .phonePeButton:hover {
-  background-color: #3f1a69;
+  background-color: #4a1d7a;
 }
 
 .otherPaymentOptions {
@@ -479,7 +558,6 @@ body {
   width: 20px;
   height: 20px;
 }
-
 .footer {
   background-color: var(--primary-color);
   color: white;

@@ -196,8 +196,14 @@ function PaymentGateway({ amount }: { amount: number }) {
         </div>
         <Tabs defaultValue="upi" className={styles.paymentTabs}>
           <TabsList className={styles.paymentTabsList}>
-            <TabsTrigger value="upi">UPI</TabsTrigger>
-            <TabsTrigger value="phonepe">PhonePe</TabsTrigger>
+            <TabsTrigger value="upi" className={styles.paymentTabsTrigger}>
+              <Image src="../assets/upi-icon.svg" alt="UPI" width={24} height={24} />
+              UPI
+            </TabsTrigger>
+            <TabsTrigger value="phonepe" className={styles.paymentTabsTrigger}>
+              <Image src="../assets/phonepe-icon.svg" alt="PhonePe" width={24} height={24} />
+              PhonePe
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="upi">
             <div className={styles.paymentForm}>
@@ -212,7 +218,7 @@ function PaymentGateway({ amount }: { amount: number }) {
                 />
               </div>
               <Button 
-                className={styles.paymentButton}
+                className={`${styles.paymentButton} ${styles.upiButton}`}
                 onClick={handleUPIPayment}
                 disabled={isProcessing}
               >
@@ -250,7 +256,7 @@ function PaymentGateway({ amount }: { amount: number }) {
               Credit Card
             </Button>
             <Button variant="outline" className={styles.otherPaymentButton}>
-              <Image src="/placeholder.svg?height=16&width=16&text=Net" alt="Net Banking" width={16} height={16} className={styles.otherPaymentIcon} />
+              <Image src="../assets/net-banking-icon.svg" alt="Net Banking" width={16} height={16} className={styles.otherPaymentIcon} />
               Net Banking
             </Button>
           </div>
@@ -745,7 +751,7 @@ export default function VendorDashboard() {
 
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <p>&copy; 2023 Krishi Mitra. All rights reserved.</p>
+          <p>&copy; 2024 Krishi Mitra. All rights reserved.</p>
         </div>
       </footer>
     </div>
