@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ShoppingCart, Search, Filter, Star, Clock, TrendingUp, Sun, Droplets, Globe, Leaf, DollarSign, BarChart2, BookOpen, Cloud, CreditCard, ArrowUpCircle, XCircle } from 'lucide-react'
+import { ShoppingCart, Search, Filter, Star, Clock, TrendingUp, Sun, Droplets, Globe, Leaf, DollarSign, BarChart2, BookOpen, Cloud, CreditCard } from 'lucide-react'
 import Image from 'next/image'
 import styles from './VendorDashboard.module.css'
 
@@ -288,7 +288,9 @@ export default function VendorDashboard() {
   const [cart, setCart] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [filterCategory, setFilterCategory] = useState('')
-  const [bidAmount, setBidAmount] = useState('')
+  const [bidAmount, setBidAmount] =
+
+ useState('')
   const [showPaymentGateway, setShowPaymentGateway] = useState(false)
   const [accountBalance, setAccountBalance] = useState(5000)
 
@@ -533,32 +535,14 @@ export default function VendorDashboard() {
                         <TableCell>{bid.quantity}</TableCell>
                         <TableCell>₹{bid.bidAmount.toFixed(2)}/kg</TableCell>
                         <TableCell>
-                          <Badge 
-                            variant={bid.status === 'winning' ? 'success' : 'destructive'}
-                            className={`${styles.statusBadge} ${bid.status === 'winning' ? styles.winning : styles.outbid}`}
-                          >
+                          <Badge variant={bid.status === 'winning' ? 'success' : 'destructive'}>
                             {t[bid.status]}
                           </Badge>
                         </TableCell>
                         <TableCell>
                           <div className={styles.bidActions}>
-                            <Button 
-                              size="sm" 
-                              onClick={() => handleIncreaseBid(bid.id)}
-                              className={`${styles.actionButton} ${styles.increaseBidButton}`}
-                            >
-                              <ArrowUpCircle className={styles.actionIcon} />
-                              {t.increaseBid}
-                            </Button>
-                            <Button 
-                              size="sm" 
-                              variant="destructive" 
-                              onClick={() => handleCancelBid(bid.id)}
-                              className={`${styles.actionButton} ${styles.cancelBidButton}`}
-                            >
-                              <XCircle className={styles.actionIcon} />
-                              {t.cancelBid}
-                            </Button>
+                            <Button size="sm" onClick={() => handleIncreaseBid(bid.id)}>{t.increaseBid}</Button>
+                            <Button size="sm" variant="destructive" onClick={() => handleCancelBid(bid.id)}>{t.cancelBid}</Button>
                           </div>
                         </TableCell>
                       </TableRow>
@@ -662,7 +646,9 @@ export default function VendorDashboard() {
                 <span>Phosphorus: Moderate</span>
               </div>
               <div className={styles.soilItem}>
-                <Leaf className={`${styles.soilIcon} ${styles.soilGood}`} />
+                <Leaf className={`${styles.soilIcon}
+
+ ${styles.soilGood}`} />
                 <span>Potassium: Good</span>
               </div>
               <Button variant="link" className={styles.viewDetailsButton}>{t.viewDetails}</Button>
