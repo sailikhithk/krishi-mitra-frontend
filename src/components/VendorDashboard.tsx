@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,20 +10,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ShoppingCart, Search, Filter, Star, Clock, TrendingUp, Sun, Droplets, Globe, Leaf, DollarSign, BarChart2, BookOpen, Cloud, CreditCard } from 'lucide-react'
-
-// Import images
 import Image from 'next/image'
 import styles from './VendorDashboard.module.css'
-import farmImage from '../assets/farm.jpg';
-import bellpepperImage from '../assets/bellpepper.webp';
-import capsicumImage from '../assets/capsicum.jpg';
-import chilliImage from '../assets/chilli.webp';
-import spinachImage from '../assets/spinach.webp';
-import tomatoImage from '../assets/tomato.webp';
-import potatoImage from '../assets/potato.webp';
-import radishImage from '../assets/radish.webp';
-import onionImage from '../assets/onion.webp';
-import carrotImage from '../assets/carrot.jpg';
+
+// Import images
+import farmImage from '../assets/farm.jpg'
+import bellpepperImage from '../assets/bellpepper.webp'
+import capsicumImage from '../assets/capsicum.jpg'
+import chilliImage from '../assets/chilli.webp'
+import spinachImage from '../assets/spinach.webp'
+import tomatoImage from '../assets/tomato.webp'
+import potatoImage from '../assets/potato.webp'
+import radishImage from '../assets/radish.webp'
+import onionImage from '../assets/onion.webp'
+import carrotImage from '../assets/carrot.jpg'
 
 // Create a mapping between product names and their corresponding images
 const productImages: { [key: string]: string } = {
@@ -37,12 +37,12 @@ const productImages: { [key: string]: string } = {
   Tomato: tomatoImage,
   Potato: potatoImage,
   Radish: radishImage,
-};
+}
 
 // Function that selects the correct image based on the product name
 const getProductImage = (productName: string) => {
-  return productImages[productName] || '';
-};
+  return productImages[productName] || '/placeholder.svg'
+}
 
 // Language translations
 const translations = {
@@ -288,9 +288,11 @@ export default function VendorDashboard() {
   const [cart, setCart] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [filterCategory, setFilterCategory] = useState('')
-  const [bidAmount, setBidAmount] = useState('')
+  const [bidAmount, setBidAmount] =
+
+ useState('')
   const [showPaymentGateway, setShowPaymentGateway] = useState(false)
-  const [accountBalance, setAccountBalance] = useState(5000) // Initialize with a mock balance
+  const [accountBalance, setAccountBalance] = useState(5000)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -311,14 +313,14 @@ export default function VendorDashboard() {
     return () => clearInterval(timer)
   }, [])
 
-  const handleBid = (productId: number) => {
+  const handleBid = useCallback((productId: number) => {
     const newBidAmount = parseFloat(bidAmount)
     if (isNaN(newBidAmount)) return
 
-    setProducts(products.map(product => 
+    setProducts(prevProducts => prevProducts.map(product => 
       product.id === productId ? { ...product, currentBid: newBidAmount } : product
     ))
-    setMyBids([...myBids, { 
+    setMyBids(prevBids => [...prevBids, { 
       id: Date.now(), 
       productId, 
       name: products.find(p => p.id === productId)?.name || '',
@@ -328,58 +330,60 @@ export default function VendorDashboard() {
       status: 'winning' 
     }])
     setBidAmount('')
-  }
+  }, [bidAmount, products])
 
-  const handleIncreaseBid = (bidId: number) => {
-    setMyBids(myBids.map(bid => 
+  const handleIncreaseBid = useCallback((bidId: number) => {
+    setMyBids(prevBids => prevBids.map(bid => 
       bid.id === bidId ? { ...bid, bidAmount: bid.bidAmount + 1, status: 'winning' } : bid
     ))
-  }
+  }, [])
 
-  const handleCancelBid = (bidId: number) => {
-    setMyBids(myBids.filter(bid => bid.id !== bidId))
-  }
+  const handleCancelBid = useCallback((bidId: number) => {
+    setMyBids(prevBids => prevBids.filter(bid => bid.id !== bidId))
+  }, [])
 
-  const addToCart = (product) => {
-    const existingItem = cart.find(item => item.id === product.id)
-    if (existingItem) {
-      setCart(cart.map(item => 
-        item.id === product.id 
-          ? { ...item, quantity: parseFloat(item.quantity) + parseFloat(product.quantity), total: (parseFloat(item.quantity) + parseFloat(product.quantity)) * item.currentBid }
-          : item
-      ))
-    } else {
-      setCart([...cart, { ...product, quantity: parseFloat(product.quantity), total: parseFloat(product.quantity) * product.currentBid }])
-    }
-  }
+  const addToCart = useCallback((product) => {
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === product.id)
+      if (existingItem) {
+        return prevCart.map(item => 
+          item.id === product.id 
+            ? { ...item, quantity: parseFloat(item.quantity) + parseFloat(product.quantity), total: (parseFloat(item.quantity) + parseFloat(product.quantity)) * item.currentBid }
+            : item
+        )
+      } else {
+        return [...prevCart, { ...product, quantity: parseFloat(product.quantity), total: parseFloat(product.quantity) * product.currentBid }]
+      }
+    })
+  }, [])
 
-  const removeFromCart = (productId) => {
-    setCart(cart.filter(item => item.id !== productId))
-  }
+  const removeFromCart = useCallback((productId) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== productId))
+  }, [])
 
-  const filteredProducts = products.filter(product => 
+  const filteredProducts = useMemo(() => products.filter(product => 
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (filterCategory === '' || product.category === filterCategory)
-  )
+  ), [products, searchTerm, filterCategory])
 
-  const totalAmount = cart.reduce((sum, item) => sum + item.total, 0)
+  const totalAmount = useMemo(() => cart.reduce((sum, item) => sum + item.total, 0), [cart])
 
-  const handleCheckout = () => {
+  const handleCheckout = useCallback(() => {
     console.log('Proceeding to checkout with total amount:', totalAmount)
     alert(`Checkout initiated for ₹${totalAmount.toFixed(2)}`)
-    setCart([]) // Clear the cart after checkout
-  }
+    setCart([])
+  }, [totalAmount])
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     setLanguage(prevLang => prevLang === 'english' ? 'telugu' : 'english')
-  }
+  }, [])
 
-  const formatTime = (seconds) => {
+  const formatTime = useCallback((seconds) => {
     const hours = Math.floor(seconds / 3600)
     const minutes = Math.floor((seconds % 3600) / 60)
     const remainingSeconds = seconds % 60
     return `${hours}h ${minutes}m ${remainingSeconds}s`
-  }
+  }, [])
 
   return (
     <div className={styles.dashboard}>
@@ -642,7 +646,9 @@ export default function VendorDashboard() {
                 <span>Phosphorus: Moderate</span>
               </div>
               <div className={styles.soilItem}>
-                <Leaf className={`${styles.soilIcon} ${styles.soilGood}`} />
+                <Leaf className={`${styles.soilIcon}
+
+ ${styles.soilGood}`} />
                 <span>Potassium: Good</span>
               </div>
               <Button variant="link" className={styles.viewDetailsButton}>{t.viewDetails}</Button>
