@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Globe, Search, TrendingUp, AlertTriangle, Truck, ShoppingCart } from 'lucide-react';
-import Navbar from './Navbar';
-import styles from './AdminDashboard.module.css';
+'use client'
 
-// Mock data (same as before)
+import React, { useState } from 'react'
+import Navbar from './Navbar'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { Globe, Search, TrendingUp, AlertTriangle, Truck } from 'lucide-react'
+
+// Mock data for demonstration
 const mandalData = [
   { id: 1, name: 'Mandal A', district: 'District X' },
   { id: 2, name: 'Mandal B', district: 'District X' },
   { id: 3, name: 'Mandal C', district: 'District Y' },
   { id: 4, name: 'Mandal D', district: 'District Y' },
   { id: 5, name: 'Mandal E', district: 'District Z' },
-];
+]
 
 const transactionData = [
   { mandal: 'Mandal A', transactions: 150, value: 75000 },
@@ -26,7 +26,7 @@ const transactionData = [
   { mandal: 'Mandal C', transactions: 200, value: 100000 },
   { mandal: 'Mandal D', transactions: 80, value: 40000 },
   { mandal: 'Mandal E', transactions: 180, value: 90000 },
-];
+]
 
 const complaintData = [
   { id: 1, mandal: 'Mandal A', type: 'Delivery Delay', status: 'Open' },
@@ -34,147 +34,124 @@ const complaintData = [
   { id: 3, mandal: 'Mandal C', type: 'Payment Dispute', status: 'In Progress' },
   { id: 4, mandal: 'Mandal D', type: 'Incorrect Order', status: 'Open' },
   { id: 5, mandal: 'Mandal E', type: 'Delivery Delay', status: 'Resolved' },
-];
+]
 
-const AdminDashboard: React.FC = () => {
-  const [selectedDistrict, setSelectedDistrict] = useState('');
-  const [selectedMandal, setSelectedMandal] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [adminData, setAdminData] = useState<{ message: string; admin: string } | null>(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchAdminData = async () => {
-      const token = localStorage.getItem('adminToken');
-      if (!token) {
-        navigate('/admin-login');
-        return;
-      }
-
-      try {
-        const response = await fetch('http://localhost:8000/admin-dashboard', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setAdminData(data);
-        } else {
-          // Handle unauthorized access
-          navigate('/admin-login');
-        }
-      } catch (error) {
-        console.error('Error fetching admin data:', error);
-        // Handle error (show error message, etc.)
-      }
-    };
-
-    fetchAdminData();
-  }, [navigate]);
+export default function AdminDashboard() {
+  const [selectedDistrict, setSelectedDistrict] = useState('')
+  const [selectedMandal, setSelectedMandal] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
 
   const filteredMandals = mandalData.filter(mandal => 
     (selectedDistrict === '' || mandal.district === selectedDistrict) &&
     mandal.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  )
 
-  const currentMandalData = transactionData.find(data => data.mandal === selectedMandal) || { transactions: 0, value: 0 };
-
-  if (!adminData) {
-    return <div>Loading...</div>;
-  }
+  const currentMandalData = transactionData.find(data => data.mandal === selectedMandal) || { transactions: 0, value: 0 }
 
   return (
-    <div className={styles.dashboard}>
-      <Navbar />
-      <main className={styles.main}>
-        <h1 className={styles.title}>Admin Dashboard</h1>
-        <p>{adminData.message}</p>
-        <p>Logged in as: {adminData.admin}</p>
+    <div className="min-h-screen bg-gradient-to-br from-[#e8f3e8] to-[#c8e6c9]">
+      {/* <Navbar userType="admin" /> */}
+      <header className="bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] text-white p-4 shadow-lg">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-bold">Krishi Mitra - Admin Dashboard</h1>
+          <Button variant="outline" className="bg-white text-[#2e7d32] hover:bg-[#e8f3e8] hover:text-[#1b5e20]">
+            <Globe className="mr-2 h-4 w-4" />
+            Logout
+          </Button>
+        </div>
+      </header>
 
-        <div className={styles.controls}>
-          <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
-            <SelectTrigger className={styles.select}>
-              <SelectValue placeholder="Select District" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="">All Districts</SelectItem>
-              <SelectItem value="District X">District X</SelectItem>
-              <SelectItem value="District Y">District Y</SelectItem>
-              <SelectItem value="District Z">District Z</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select value={selectedMandal} onValueChange={setSelectedMandal}>
-            <SelectTrigger className={styles.select}>
-              <SelectValue placeholder="Select Mandal" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="">All Mandals</SelectItem>
-              {filteredMandals.map(mandal => (
-                <SelectItem key={mandal.id} value={mandal.name}>{mandal.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <div className={styles.search}>
+      <main className="container mx-auto mt-8">
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center space-x-4">
+            <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select District" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">All Districts</SelectItem>
+                <SelectItem value="District X">District X</SelectItem>
+                <SelectItem value="District Y">District Y</SelectItem>
+                <SelectItem value="District Z">District Z</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value={selectedMandal} onValueChange={setSelectedMandal}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select Mandal" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">All Mandals</SelectItem>
+                {filteredMandals.map(mandal => (
+                  <SelectItem key={mandal.id} value={mandal.name}>{mandal.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex items-center space-x-2">
             <Input
               type="text"
               placeholder="Search mandals..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={styles.searchInput}
+              className="w-64"
             />
-            <Button variant="ghost" className={styles.searchButton}>
+            <Button variant="ghost">
               <Search className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className={styles.statsGrid}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>Total Transactions</CardTitle>
-              <TrendingUp className={styles.cardIcon} />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Transactions</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className={styles.statValue}>{currentMandalData.transactions}</div>
-              <p className={styles.statChange}>+20.1% from last month</p>
+              <div className="text-2xl font-bold">{currentMandalData.transactions}</div>
+              <p className="text-xs text-muted-foreground">
+                +20.1% from last month
+              </p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>Transaction Value</CardTitle>
-              <TrendingUp className={styles.cardIcon} />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Transaction Value</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className={styles.statValue}>₹{currentMandalData.value.toLocaleString()}</div>
-              <p className={styles.statChange}>+15.5% from last month</p>
+              <div className="text-2xl font-bold">₹{currentMandalData.value.toLocaleString()}</div>
+              <p className="text-xs text-muted-foreground">
+                +15.5% from last month
+              </p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>Active Complaints</CardTitle>
-              <AlertTriangle className={styles.cardIcon} />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Active Complaints</CardTitle>
+              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className={styles.statValue}>{complaintData.filter(c => c.status === 'Open').length}</div>
-              <p className={styles.statChange}>-3.2% from last month</p>
+              <div className="text-2xl font-bold">{complaintData.filter(c => c.status === 'Open').length}</div>
+              <p className="text-xs text-muted-foreground">
+                -3.2% from last month
+              </p>
             </CardContent>
           </Card>
         </div>
 
-        <Tabs defaultValue="transactions" className={styles.tabs}>
+        <Tabs defaultValue="transactions" className="space-y-4">
           <TabsList>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="complaints">Complaints</TabsTrigger>
             <TabsTrigger value="logistics">Logistics</TabsTrigger>
           </TabsList>
-          <TabsContent value="transactions">
+          <TabsContent value="transactions" className="space-y-4">
             <Card>
               <CardHeader>
                 <CardTitle>Transaction Overview</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pl-2">
                 <ResponsiveContainer width="100%" height={350}>
                   <BarChart data={transactionData}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -223,26 +200,26 @@ const AdminDashboard: React.FC = () => {
                 <CardTitle>Logistics Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className={styles.logisticsStats}>
-                  <div className={styles.logisticItem}>
-                    <Truck className={styles.logisticIcon} />
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <Truck className="h-6 w-6 text-green-600" />
                     <div>
-                      <p className={styles.logisticLabel}>Active Deliveries</p>
-                      <p className={styles.logisticValue}>24</p>
+                      <p className="text-sm font-medium">Active Deliveries</p>
+                      <p className="text-2xl font-bold">24</p>
                     </div>
                   </div>
-                  <div className={styles.logisticItem}>
-                    <Truck className={styles.logisticIcon} />
+                  <div className="flex items-center space-x-4">
+                    <Truck className="h-6 w-6 text-orange-600" />
                     <div>
-                      <p className={styles.logisticLabel}>Delayed Shipments</p>
-                      <p className={styles.logisticValue}>3</p>
+                      <p className="text-sm font-medium">Delayed Shipments</p>
+                      <p className="text-2xl font-bold">3</p>
                     </div>
                   </div>
-                  <div className={styles.logisticItem}>
-                    <Truck className={styles.logisticIcon} />
+                  <div className="flex items-center space-x-4">
+                    <Truck className="h-6 w-6 text-blue-600" />
                     <div>
-                      <p className={styles.logisticLabel}>Completed Deliveries (This Month)</p>
-                      <p className={styles.logisticValue}>187</p>
+                      <p className="text-sm font-medium">Completed Deliveries (This Month)</p>
+                      <p className="text-2xl font-bold">187</p>
                     </div>
                   </div>
                 </div>
@@ -252,7 +229,5 @@ const AdminDashboard: React.FC = () => {
         </Tabs>
       </main>
     </div>
-  );
-};
-
-export default AdminDashboard;
+  )
+}

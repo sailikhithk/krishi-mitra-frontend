@@ -23,6 +23,9 @@ const AdminLogin: React.FC = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
+      console.log('Token stored:', response.data.access_token);
+      const tokenPayload = JSON.parse(atob(response.data.access_token.split('.')[1]));
+      console.log('Token payload:', tokenPayload);
       console.log('Admin login successful:', response.data);
       localStorage.setItem('adminToken', response.data.access_token);
       localStorage.setItem('userRole', userType);
