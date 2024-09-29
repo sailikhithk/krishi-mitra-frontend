@@ -1,0 +1,127 @@
+.dashboard {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #e8f3e8, #c8e6c9);
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .select {
+    width: 180px;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchInput {
+    width: 250px;
+    margin-right: 0.5rem;
+  }
+  
+  .searchButton {
+    background: transparent;
+  }
+  
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+  }
+  
+  .cardTitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .cardIcon {
+    width: 1rem;
+    height: 1rem;
+    color: #6b7280;
+  }
+  
+  .statValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .statChange {
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+  
+  .tabs {
+    margin-bottom: 2rem;
+  }
+  
+  .logisticsStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .logisticItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logisticIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #2e7d32;
+    margin-right: 1rem;
+  }
+  
+  .logisticLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .logisticValue {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .select,
+    .search {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .statsGrid,
+    .logisticsStats {
+      grid-template-columns: 1fr;
+    }
+  }
