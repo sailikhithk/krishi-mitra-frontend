@@ -5,8 +5,6 @@ import BiddingProcess from './BiddingProcess';
 const FarmerDashboard: React.FC = () => {
   return (
     <div>
-      <h1>Farmer Dashboard</h1>
-      <SoilHealthMonitoring />
       <BiddingProcess />
     </div>
   );

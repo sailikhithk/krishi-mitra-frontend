@@ -1,22 +1,46 @@
+import React from 'react';
+// Import images
+import farmImage from '../assets/farm.jpg';
+import bellpepperImage from '../assets/bellpepper.webp';
+import capsicumImage from '../assets/capsicum.jpg';
+import chilliImage from '../assets/chilli.webp';
+import spinachImage from '../assets/spinach.webp';
+import tomatoImage from '../assets/tomato.webp';
+import potatoImage from '../assets/potato.webp';
+import radishImage from '../assets/radish.webp';
+
 function CropVarieties() {
   const hubItems = [
     {
-      image: "path_to_image1.jpg",
-      title: "Corn",
+      image: bellpepperImage,
+      title: "Bell Pepper",
     },
     {
-      image: "path_to_image2.jpg",
+      image: capsicumImage,
+      title: "Capsicum",
+    },
+    {
+      image: chilliImage,
+      title: "Chilli",
+    },
+    {
+      image: spinachImage,
+      title: "Spinach",
+    },
+    {
+      image: tomatoImage,
+      title: "Tomato",
+    },
+    {
+      image: potatoImage,
       title: "Potato",
     },
     {
-      image: "path_to_image3.jpg",
-      title: "Wheat",
-    },
-    {
-      image: "path_to_image4.jpg",
-      title: "Rice",
+      image: radishImage,
+      title: "Radish",
     },
   ];
+
   return (
     <div className="knowledge-hub">
       <h3>Crop Varieties</h3>
