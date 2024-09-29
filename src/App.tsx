@@ -12,8 +12,8 @@ import FarmerDashboard from './components/FarmerDashboard';
 import VendorDashboard from './components/VendorDashboard';
 import './App.css';
 
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   return (
