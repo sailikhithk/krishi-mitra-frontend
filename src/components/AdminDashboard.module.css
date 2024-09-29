@@ -1,127 +1,193 @@
 .dashboard {
-    min-height: 100vh;
-    background: linear-gradient(to bottom right, #e8f3e8, #c8e6c9);
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e8f3e8, #c8e6c9);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.backgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/ploughing.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.header {
+  background: linear-gradient(to right, #2e7d32, #1b5e20);
+  color: white;
+  padding: 15px 0;
+  width: 100%;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.logoutButton {
+  background-color: white;
+  color: #2e7d32;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #e8f3e8;
+  color: #1b5e20;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.selects {
+  display: flex;
+  gap: 1rem;
+}
+
+.select {
+  width: 180px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 250px;
+  margin-right: 0.5rem;
+}
+
+.searchButton {
+  background: transparent;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.cardIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.statChange {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.tabs {
+  margin-bottom: 2rem;
+}
+
+.tabContent {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chartContainer {
+  padding: 1rem;
+}
+
+.logisticsStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.logisticItem {
+  display: flex;
+  align-items: center;
+}
+
+.logisticIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.logisticLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.logisticValue {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  .main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2e7d32;
+
+  .selects,
+  .search {
+    width: 100%;
     margin-bottom: 1rem;
   }
-  
-  .controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .select {
-    width: 180px;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-  }
-  
-  .searchInput {
-    width: 250px;
-    margin-right: 0.5rem;
-  }
-  
-  .searchButton {
-    background: transparent;
-  }
-  
-  .statsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 0.5rem;
-  }
-  
-  .cardTitle {
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-  
-  .cardIcon {
-    width: 1rem;
-    height: 1rem;
-    color: #6b7280;
-  }
-  
-  .statValue {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .statChange {
-    font-size: 0.75rem;
-    color: #6b7280;
-  }
-  
-  .tabs {
-    margin-bottom: 2rem;
-  }
-  
+
+  .statsGrid,
   .logisticsStats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
-  
-  .logisticItem {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logisticIcon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #2e7d32;
-    margin-right: 1rem;
-  }
-  
-  .logisticLabel {
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-  
-  .logisticValue {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  @media (max-width: 768px) {
-    .controls {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .select,
-    .search {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-  
-    .statsGrid,
-    .logisticsStats {
-      grid-template-columns: 1fr;
-    }
-  }
+}

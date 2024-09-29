@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import Navbar from './Navbar'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Globe, Search, TrendingUp, AlertTriangle, Truck } from 'lucide-react'
+import styles from './AdminDashboard.module.css'
 
 // Mock data for demonstration
 const mandalData = [
@@ -49,23 +49,23 @@ export default function AdminDashboard() {
   const currentMandalData = transactionData.find(data => data.mandal === selectedMandal) || { transactions: 0, value: 0 }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#e8f3e8] to-[#c8e6c9]">
-      {/* <Navbar userType="admin" /> */}
-      <header className="bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] text-white p-4 shadow-lg">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Krishi Mitra - Admin Dashboard</h1>
-          <Button variant="outline" className="bg-white text-[#2e7d32] hover:bg-[#e8f3e8] hover:text-[#1b5e20]">
+    <div className={styles.dashboard}>
+      <div className={styles.backgroundOverlay}></div>
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <h1 className={styles.title}>Krishi Mitra - Admin Dashboard</h1>
+          <Button variant="outline" className={styles.logoutButton}>
             <Globe className="mr-2 h-4 w-4" />
             Logout
           </Button>
         </div>
       </header>
 
-      <main className="container mx-auto mt-8">
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-4">
+      <main className={styles.main}>
+        <div className={styles.controls}>
+          <div className={styles.selects}>
             <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className={styles.select}>
                 <SelectValue placeholder="Select District" />
               </SelectTrigger>
               <SelectContent>
@@ -76,7 +76,7 @@ export default function AdminDashboard() {
               </SelectContent>
             </Select>
             <Select value={selectedMandal} onValueChange={setSelectedMandal}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className={styles.select}>
                 <SelectValue placeholder="Select Mandal" />
               </SelectTrigger>
               <SelectContent>
@@ -87,71 +87,71 @@ export default function AdminDashboard() {
               </SelectContent>
             </Select>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className={styles.search}>
             <Input
               type="text"
               placeholder="Search mandals..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-64"
+              className={styles.searchInput}
             />
-            <Button variant="ghost">
+            <Button variant="ghost" className={styles.searchButton}>
               <Search className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className={styles.statsGrid}>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Transactions</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className={styles.cardHeader}>
+              <CardTitle className={styles.cardTitle}>Total Transactions</CardTitle>
+              <TrendingUp className={styles.cardIcon} />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{currentMandalData.transactions}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className={styles.statValue}>{currentMandalData.transactions}</div>
+              <p className={styles.statChange}>
                 +20.1% from last month
               </p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Transaction Value</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className={styles.cardHeader}>
+              <CardTitle className={styles.cardTitle}>Transaction Value</CardTitle>
+              <TrendingUp className={styles.cardIcon} />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">₹{currentMandalData.value.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className={styles.statValue}>₹{currentMandalData.value.toLocaleString()}</div>
+              <p className={styles.statChange}>
                 +15.5% from last month
               </p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Complaints</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+            <CardHeader className={styles.cardHeader}>
+              <CardTitle className={styles.cardTitle}>Active Complaints</CardTitle>
+              <AlertTriangle className={styles.cardIcon} />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{complaintData.filter(c => c.status === 'Open').length}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className={styles.statValue}>{complaintData.filter(c => c.status === 'Open').length}</div>
+              <p className={styles.statChange}>
                 -3.2% from last month
               </p>
             </CardContent>
           </Card>
         </div>
 
-        <Tabs defaultValue="transactions" className="space-y-4">
+        <Tabs defaultValue="transactions" className={styles.tabs}>
           <TabsList>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="complaints">Complaints</TabsTrigger>
             <TabsTrigger value="logistics">Logistics</TabsTrigger>
           </TabsList>
-          <TabsContent value="transactions" className="space-y-4">
+          <TabsContent value="transactions" className={styles.tabContent}>
             <Card>
               <CardHeader>
                 <CardTitle>Transaction Overview</CardTitle>
               </CardHeader>
-              <CardContent className="pl-2">
+              <CardContent className={styles.chartContainer}>
                 <ResponsiveContainer width="100%" height={350}>
                   <BarChart data={transactionData}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -200,26 +200,26 @@ export default function AdminDashboard() {
                 <CardTitle>Logistics Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <Truck className="h-6 w-6 text-green-600" />
+                <div className={styles.logisticsStats}>
+                  <div className={styles.logisticItem}>
+                    <Truck className={`${styles.logisticIcon} text-green-600`} />
                     <div>
-                      <p className="text-sm font-medium">Active Deliveries</p>
-                      <p className="text-2xl font-bold">24</p>
+                      <p className={styles.logisticLabel}>Active Deliveries</p>
+                      <p className={styles.logisticValue}>24</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <Truck className="h-6 w-6 text-orange-600" />
+                  <div className={styles.logisticItem}>
+                    <Truck className={`${styles.logisticIcon} text-orange-600`} />
                     <div>
-                      <p className="text-sm font-medium">Delayed Shipments</p>
-                      <p className="text-2xl font-bold">3</p>
+                      <p className={styles.logisticLabel}>Delayed Shipments</p>
+                      <p className={styles.logisticValue}>3</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <Truck className="h-6 w-6 text-blue-600" />
+                  <div className={styles.logisticItem}>
+                    <Truck className={`${styles.logisticIcon} text-blue-600`} />
                     <div>
-                      <p className="text-sm font-medium">Completed Deliveries (This Month)</p>
-                      <p className="text-2xl font-bold">187</p>
+                      <p className={styles.logisticLabel}>Completed Deliveries (This Month)</p>
+                      <p className={styles.logisticValue}>187</p>
                     </div>
                   </div>
                 </div>
