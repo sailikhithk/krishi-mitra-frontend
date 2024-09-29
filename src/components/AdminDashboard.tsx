@@ -11,7 +11,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { Globe, Search, TrendingUp, AlertTriangle, Truck } from 'lucide-react'
 import styles from './AdminDashboard.module.css'
 
-// Mock data for demonstration
+// Mock data for demonstration (unchanged)
 const mandalData = [
   { id: 1, name: 'Mandal A', district: 'District X' },
   { id: 2, name: 'Mandal B', district: 'District X' },
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
         </div>
 
         <Tabs defaultValue="transactions" className={styles.tabs}>
-          <TabsList>
+          <TabsList className={styles.tabsList}>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="complaints">Complaints</TabsTrigger>
             <TabsTrigger value="logistics">Logistics</TabsTrigger>
