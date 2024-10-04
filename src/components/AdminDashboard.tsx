@@ -350,24 +350,21 @@ export default function AdminDashboard() {
                 <CardTitle>{t.complaintLog}</CardTitle>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Mandal</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Status</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {complaintData.map(complaint => (
-                      <TableRow key={complaint.id}>
-                        <TableCell>{complaint.mandal}</TableCell>
-                        <TableCell>{complaint.type}</TableCell>
-                        <TableCell>{complaint.status}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                <div className={styles.complaintList}>
+                  {complaintData.map(complaint => (
+                    <div key={complaint.id} className={styles.complaintItem}>
+                      <div className={styles.complaintInfo}>
+                        <span className={styles.complaintMandal}>{complaint.mandal}</span>
+                        <span className={styles.complaintType}>{complaint.type}</span>
+                      </div>
+                      <Button 
+                        className={`${styles.complaintStatus} ${styles[complaint.status.toLowerCase().replace(/\s+/g, '')]}`}
+                      >
+                        {complaint.status}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
