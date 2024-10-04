@@ -92,7 +92,6 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |   |   SoilHealthMonitoring.tsx
 |   |   VendorDashboard.module.css
 |   |   VendorDashboard.tsx
-|   |   VendorDashboard_old.tsx
 |   |   
 |   \---ui
 |           badge.tsx
