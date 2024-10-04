@@ -82,7 +82,7 @@ const logisticsData: LogisticsData[] = [
   { 
     id: 3, 
     orderNumber: 'ORD003',
-    from: { type: 'Farmer', name: 'Venkata Rao', mandal: 'Kakinada' },
+    from: { type: 'Farmer', name:'Venkata Rao', mandal: 'Kakinada' },
     to: { type: 'Vendor', name: 'East Coast Mart', mandal: 'Rajamahendravaram' },
     status: 'Delivered',
     expectedDelivery: '2023-09-25',
@@ -397,48 +397,50 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                 </div>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>{t.orderNumber}</TableHead>
-                      <TableHead>{t.from}</TableHead>
-                      <TableHead>{t.to}</TableHead>
-                      <TableHead>{t.status}</TableHead>
-                      <TableHead>{t.expectedDelivery}</TableHead>
-                      <TableHead>{t.delay}</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredLogisticsData.map(order => (
-                      <TableRow key={order.id}>
-                        <TableCell>{order.orderNumber}</TableCell>
-                        <TableCell>
-                          <div>{order.from.name}</div>
-                          <div className={styles.cellSubtext}>{order.from.type}, {order.from.mandal}</div>
-                        </TableCell>
-                        <TableCell>
-                          <div>{order.to.name}</div>
-                          <div className={styles.cellSubtext}>{order.to.type}, {order.to.mandal}</div>
-                        </TableCell>
-                        <TableCell>
-                          <span className={`${styles.statusBadge} ${styles[`status${order.status.replace(/\s+/g, '')}`]}`}>
-                            {order.status}
-                          </span>
-                        </TableCell>
-                        <TableCell>{order.expectedDelivery}</TableCell>
-                        <TableCell>
-                          {order.delay.isDelayed ? (
-                            <div className={styles.delayText}>
-                              {order.delay.reason} ({order.delay.duration})
-                            </div>
-                          ) : (
-                            <span className={styles.onTimeText}>{t.onTime}</span>
-                          )}
-                        </TableCell>
+                <div className={styles.tableWrapper}>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className={styles.tableHeadCell}>{t.orderNumber}</TableHead>
+                        <TableHead className={styles.tableHeadCell}>{t.from}</TableHead>
+                        <TableHead className={styles.tableHeadCell}>{t.to}</TableHead>
+                        <TableHead className={styles.tableHeadCell}>{t.status}</TableHead>
+                        <TableHead className={styles.tableHeadCell}>{t.expectedDelivery}</TableHead>
+                        <TableHead className={styles.tableHeadCell}>{t.delay}</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredLogisticsData.map(order => (
+                        <TableRow key={order.id}>
+                          <TableCell className={styles.tableCell}>{order.orderNumber}</TableCell>
+                          <TableCell className={styles.tableCell}>
+                            <div>{order.from.name}</div>
+                            <div className={styles.cellSubtext}>{order.from.type}, {order.from.mandal}</div>
+                          </TableCell>
+                          <TableCell className={styles.tableCell}>
+                            <div>{order.to.name}</div>
+                            <div className={styles.cellSubtext}>{order.to.type}, {order.to.mandal}</div>
+                          </TableCell>
+                          <TableCell className={styles.tableCell}>
+                            <span className={`${styles.statusBadge} ${styles[`status${order.status.replace(/\s+/g, '')}`]}`}>
+                              {order.status}
+                            </span>
+                          </TableCell>
+                          <TableCell className={styles.tableCell}>{order.expectedDelivery}</TableCell>
+                          <TableCell className={styles.tableCell}>
+                            {order.delay.isDelayed ? (
+                              <div className={styles.delayText}>
+                                {order.delay.reason} ({order.delay.duration})
+                              </div>
+                            ) : (
+                              <span className={styles.onTimeText}>{t.onTime}</span>
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
