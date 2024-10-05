@@ -11,7 +11,6 @@ import { translations, Language } from '@/locales/translations'
 import { districtData, mandalData } from '@/data/mandalData'
 import styles from './AdminDashboard.module.css'
 
-// Define types for your data
 type TransactionData = {
   mandal: string;
   transactions: number;
@@ -36,18 +35,36 @@ type LogisticsData = {
   delay: { isDelayed: boolean; reason: string | null; duration: string | null };
 }
 
-// Mock data (you would typically fetch this from an API)
+type FarmerData = {
+  id: number;
+  name: string;
+  mandal: string;
+  activeListings: number;
+  totalSales: number;
+}
+
+type VendorData = {
+  id: number;
+  name: string;
+  mandal: string;
+  totalPurchases: number;
+  activeOrders: number;
+}
+
+type ProduceData = {
+  id: number;
+  name: string;
+  category: string;
+  totalTransactions: number;
+  totalValue: number;
+}
+
 const transactionData: TransactionData[] = [
   { mandal: 'Anantapur', transactions: 150, value: 75000 },
   { mandal: 'Dharmavaram', transactions: 120, value: 60000 },
   { mandal: 'Madanapalle', transactions: 200, value: 100000 },
   { mandal: 'Tirupati', transactions: 180, value: 90000 },
   { mandal: 'Kakinada', transactions: 160, value: 80000 },
-  { mandal: 'Rajamahendravaram', transactions: 140, value: 70000 },
-  { mandal: 'Guntur', transactions: 220, value: 110000 },
-  { mandal: 'Tenali', transactions: 130, value: 65000 },
-  { mandal: 'Vijayawada', transactions: 250, value: 125000 },
-  { mandal: 'Machilipatnam', transactions: 110, value: 55000 },
 ]
 
 const complaintData: ComplaintData[] = [
@@ -82,33 +99,37 @@ const logisticsData: LogisticsData[] = [
   { 
     id: 3, 
     orderNumber: 'ORD003',
-    from: { type: 'Farmer', name:'Venkata Rao', mandal: 'Kakinada' },
+    from: { type: 'Farmer', name: 'Venkata Rao', mandal: 'Kakinada' },
     to: { type: 'Vendor', name: 'East Coast Mart', mandal: 'Rajamahendravaram' },
     status: 'Delivered',
     expectedDelivery: '2023-09-25',
     actualDelivery: '2023-09-25',
     delay: { isDelayed: false, reason: null, duration: null }
   },
-  { 
-    id: 4, 
-    orderNumber: 'ORD004',
-    from: { type: 'Vendor', name: 'Krishna Valley Supplies', mandal: 'Vijayawada' },
-    to: { type: 'Farmer', name: 'Suresh Reddy', mandal: 'Machilipatnam' },
-    status: 'Delayed',
-    expectedDelivery: '2023-09-27',
-    actualDelivery: null,
-    delay: { isDelayed: true, reason: 'Vehicle breakdown', duration: '1 day' }
-  },
-  { 
-    id: 5, 
-    orderNumber: 'ORD005',
-    from: { type: 'Farmer', name: 'Padma Lakshmi', mandal: 'Tenali' },
-    to: { type: 'Vendor', name: 'Guntur Spice Market', mandal: 'Guntur' },
-    status: 'In Transit',
-    expectedDelivery: '2023-10-01',
-    actualDelivery: null,
-    delay: { isDelayed: false, reason: null, duration: null }
-  },
+]
+
+const farmerData: FarmerData[] = [
+  { id: 1, name: 'Ravi Kumar', mandal: 'Anantapur', activeListings: 3, totalSales: 75000 },
+  { id: 2, name: 'Lakshmi Devi', mandal: 'Tirupati', activeListings: 2, totalSales: 50000 },
+  { id: 3, name: 'Venkata Rao', mandal: 'Kakinada', activeListings: 5, totalSales: 120000 },
+  { id: 4, name: 'Suresh Reddy', mandal: 'Machilipatnam', activeListings: 1, totalSales: 30000 },
+  { id: 5, name: 'Padma Lakshmi', mandal: 'Tenali', activeListings: 4, totalSales: 95000 },
+]
+
+const vendorData: VendorData[] = [
+  { id: 1, name: 'AP Groceries', mandal: 'Vijayawada', totalPurchases: 150000, activeOrders: 3 },
+  { id: 2, name: 'Andhra Farm Supplies', mandal: 'Guntur', totalPurchases: 200000, activeOrders: 5 },
+  { id: 3, name: 'East Coast Mart', mandal: 'Rajamahendravaram', totalPurchases: 80000, activeOrders: 2 },
+  { id: 4, name: 'Krishna Valley Supplies', mandal: 'Vijayawada', totalPurchases: 250000, activeOrders: 6 },
+  { id: 5, name: 'Guntur Spice Market', mandal: 'Guntur', totalPurchases: 180000, activeOrders: 4 },
+]
+
+const produceData: ProduceData[] = [
+  { id: 1, name: 'Tomatoes', category: 'Vegetables', totalTransactions: 500, totalValue: 250000 },
+  { id: 2, name: 'Rice', category: 'Grains', totalTransactions: 300, totalValue: 600000 },
+  { id: 3, name: 'Mangoes', category: 'Fruits', totalTransactions: 200, totalValue: 400000 },
+  { id: 4, name: 'Chillies', category: 'Spices', totalTransactions: 150, totalValue: 75000 },
+  { id: 5, name: 'Milk', category: 'Dairy', totalTransactions: 400, totalValue: 200000 },
 ]
 
 export default function AdminDashboard() {
@@ -119,6 +140,7 @@ export default function AdminDashboard() {
   const [startDate, setStartDate] = useState<string>('')
   const [endDate, setEndDate] = useState<string>('')
   const [language, setLanguage] = useState<Language>('en')
+  const [activeView, setActiveView] = useState('overview')
 
   const t = translations[language]
 
@@ -134,21 +156,6 @@ export default function AdminDashboard() {
       return transactionData
     }
     return transactionData.filter(data => data.mandal === selectedMandal)
-  }, [selectedMandal])
-
-  const currentMandalData = useMemo(() => {
-    if (selectedMandal === '') {
-      const totalTransactions = transactionData.reduce((sum, data) => sum + data.transactions, 0)
-      const totalValue = transactionData.reduce((sum, data) => sum + data.value, 0)
-      return { transactions: totalTransactions, value: totalValue }
-    }
-    return transactionData.find(data => data.mandal === selectedMandal) || { transactions: 0, value: 0 }
-  }, [selectedMandal])
-
-  const filteredLogisticsData = useMemo(() => {
-    return logisticsData.filter(order => 
-      (selectedMandal === '' || order.from.mandal === selectedMandal || order.to.mandal === selectedMandal)
-    )
   }, [selectedMandal])
 
   const handleDistrictChange = useCallback((value: string) => {
@@ -179,7 +186,6 @@ export default function AdminDashboard() {
     setLanguage(prev => prev === 'en' ? 'te' : 'en')
   }, [])
 
-  // Set default filters on component mount
   useEffect(() => {
     setSelectedDistrict('')
     setSelectedMandal('')
@@ -278,71 +284,137 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        <div className={styles.statsGrid}>
-          <Card className={styles.statCard}>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>{t.totalTransactions}</CardTitle>
-              <TrendingUp className={styles.cardIcon} />
-            </CardHeader>
-            <CardContent>
-              <div className={styles.statValue}>{currentMandalData.transactions}</div>
-              <p className={styles.statChange}>
-                +20.1% from last period
-              </p>
-            </CardContent>
-          </Card>
-          <Card className={styles.statCard}>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>{t.transactionValue}</CardTitle>
-              <TrendingUp className={styles.cardIcon} />
-            </CardHeader>
-            <CardContent>
-              <div className={styles.statValue}>₹{currentMandalData.value.toLocaleString()}</div>
-              <p className={styles.statChange}>
-                +15.5% from last period
-              </p>
-            </CardContent>
-          </Card>
-          <Card className={styles.statCard}>
-            <CardHeader className={styles.cardHeader}>
-              <CardTitle className={styles.cardTitle}>{t.activeComplaints}</CardTitle>
-              <AlertTriangle className={styles.cardIcon} />
-            </CardHeader>
-            <CardContent>
-              <div className={styles.statValue}>{complaintData.filter(c => c.status === 'Open').length}</div>
-              <p className={styles.statChange}>
-                -3.2% from last period
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
         <Tabs defaultValue="transactions" className={styles.tabs}>
           <TabsList className={styles.tabsList}>
-            <TabsTrigger value="transactions">{t.transactions}</TabsTrigger>
-            <TabsTrigger value="complaints">{t.complaints}</TabsTrigger>
-            <TabsTrigger value="logistics">{t.logistics}</TabsTrigger>
+            <TabsTrigger value="transactions">Transactions</TabsTrigger>
+            <TabsTrigger value="complaints">Complaints</TabsTrigger>
+            <TabsTrigger value="logistics">Logistics</TabsTrigger>
           </TabsList>
           <TabsContent value="transactions" className={styles.tabContent}>
-            <Card>
-              <CardHeader>
-                <CardTitle>{t.transactionOverview}</CardTitle>
-              </CardHeader>
-              <CardContent className={styles.chartContainer}>
-                <ResponsiveContainer width="100%" height={350}>
-                  <BarChart data={filteredTransactionData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="mandal" />
-                    <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-                    <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-                    <Tooltip />
-                    <Legend />
-                    <Bar yAxisId="left" dataKey="transactions" fill="#8884d8" name="Transactions" />
-                    <Bar yAxisId="right" dataKey="value" fill="#82ca9d" name="Value (₹)" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card>
+            <div className={styles.sideHeadings}>
+              <Button variant="ghost" className={styles.sideHeading} onClick={() => setActiveView('overview')}>
+                Transactions Overview
+              </Button>
+              <Button variant="ghost" className={styles.sideHeading} onClick={() => setActiveView('byFarmer')}>
+                Transactions by Farmer
+              </Button>
+              <Button variant="ghost" className={styles.sideHeading} onClick={() => setActiveView('byVendor')}>
+                Transactions by Vendor
+              </Button>
+              <Button variant="ghost" className={styles.sideHeading} onClick={() => setActiveView('byProduce')}>
+                Transactions by Produce
+              </Button>
+            </div>
+            <div className={styles.contentArea}>
+              {activeView === 'overview' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Transactions Overview</CardTitle>
+                  </CardHeader>
+                  <CardContent className={styles.chartContainer}>
+                    <ResponsiveContainer width="100%" height={350}>
+                      <BarChart data={filteredTransactionData}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="mandal" />
+                        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+                        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                        <Tooltip />
+                        <Legend />
+                        <Bar yAxisId="left" dataKey="transactions" fill="#8884d8" name="Transactions" />
+                        <Bar yAxisId="right" dataKey="value" fill="#82ca9d" name="Value (₹)" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </CardContent>
+                </Card>
+              )}
+              {activeView === 'byFarmer' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Transactions by Farmer</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Location</TableHead>
+                          <TableHead>Active Listings</TableHead>
+                          <TableHead>Total Sales</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {farmerData.map((farmer) => (
+                          <TableRow key={farmer.id}>
+                            <TableCell>{farmer.name}</TableCell>
+                            <TableCell>{farmer.mandal}</TableCell>
+                            <TableCell>{farmer.activeListings}</TableCell>
+                            <TableCell>₹{farmer.totalSales.toLocaleString()}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              )}
+              {activeView === 'byVendor' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Transactions by Vendor</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Location</TableHead>
+                          <TableHead>Total Purchases</TableHead>
+                          <TableHead>Active Orders</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {vendorData.map((vendor) => (
+                          <TableRow key={vendor.id}>
+                            <TableCell>{vendor.name}</TableCell>
+                            <TableCell>{vendor.mandal}</TableCell>
+                            <TableCell>₹{vendor.totalPurchases.toLocaleString()}</TableCell>
+                            <TableCell>{vendor.activeOrders}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              )}
+              {activeView === 'byProduce' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Transactions by Produce</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Category</TableHead>
+                          <TableHead>Total Transactions</TableHead>
+                          <TableHead>Total Value</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {produceData.map((produce) => (
+                          <TableRow key={produce.id}>
+                            <TableCell>{produce.name}</TableCell>
+                            <TableCell>{produce.category}</TableCell>
+                            <TableCell>{produce.totalTransactions}</TableCell>
+                            <TableCell>₹{produce.totalValue.toLocaleString()}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </TabsContent>
           <TabsContent value="complaints" className={styles.tabContent}>
             <Card>
@@ -371,76 +443,74 @@ export default function AdminDashboard() {
           <TabsContent value="logistics" className={styles.tabContent}>
             <Card>
               <CardHeader>
-                <CardTitle>{t.logisticsOverview}</CardTitle>
+                <CardTitle>Logistics Overview</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className={styles.logisticsStats}>
                   <div className={styles.logisticItem}>
                     <Truck className={styles.logisticIcon} />
                     <div>
-                      <p className={styles.logisticLabel}>{t.activeDeliveries}</p>
-                      <p className={styles.logisticValue}>{filteredLogisticsData.filter(order => order.status === 'In Transit').length}</p>
+                      <p className={styles.logisticLabel}>Active Deliveries</p>
+                      <p className={styles.logisticValue}>{logisticsData.filter(order => order.status === 'In Transit').length}</p>
                     </div>
                   </div>
                   <div className={styles.logisticItem}>
                     <Clock className={styles.logisticIcon} />
                     <div>
-                      <p className={styles.logisticLabel}>{t.delayedShipments}</p>
-                      <p className={styles.logisticValue}>{filteredLogisticsData.filter(order => order.delay.isDelayed).length}</p>
+                      <p className={styles.logisticLabel}>Delayed Shipments</p>
+                      <p className={styles.logisticValue}>{logisticsData.filter(order => order.delay.isDelayed).length}</p>
                     </div>
                   </div>
                   <div className={styles.logisticItem}>
                     <Truck className={styles.logisticIcon} />
                     <div>
-                      <p className={styles.logisticLabel}>{t.completedDeliveries}</p>
-                      <p className={styles.logisticValue}>{filteredLogisticsData.filter(order => order.status === 'Delivered').length}</p>
+                      <p className={styles.logisticLabel}>Completed Deliveries</p>
+                      <p className={styles.logisticValue}>{logisticsData.filter(order => order.status === 'Delivered').length}</p>
                     </div>
                   </div>
                 </div>
-                <div className={styles.tableWrapper}>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className={styles.tableHeadCell}>{t.orderNumber}</TableHead>
-                        <TableHead className={styles.tableHeadCell}>{t.from}</TableHead>
-                        <TableHead className={styles.tableHeadCell}>{t.to}</TableHead>
-                        <TableHead className={styles.tableHeadCell}>{t.status}</TableHead>
-                        <TableHead className={styles.tableHeadCell}>{t.expectedDelivery}</TableHead>
-                        <TableHead className={styles.tableHeadCell}>{t.delay}</TableHead>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Order Number</TableHead>
+                      <TableHead>From</TableHead>
+                      <TableHead>To</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Expected Delivery</TableHead>
+                      <TableHead>Delay</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {logisticsData.map((order) => (
+                      <TableRow key={order.id}>
+                        <TableCell>{order.orderNumber}</TableCell>
+                        <TableCell>
+                          <div>{order.from.name}</div>
+                          <div className={styles.cellSubtext}>{order.from.type}, {order.from.mandal}</div>
+                        </TableCell>
+                        <TableCell>
+                          <div>{order.to.name}</div>
+                          <div className={styles.cellSubtext}>{order.to.type}, {order.to.mandal}</div>
+                        </TableCell>
+                        <TableCell>
+                          <span className={`${styles.statusBadge} ${styles[`status${order.status.replace(/\s+/g, '')}`]}`}>
+                            {order.status}
+                          </span>
+                        </TableCell>
+                        <TableCell>{order.expectedDelivery}</TableCell>
+                        <TableCell>
+                          {order.delay.isDelayed ? (
+                            <div className={styles.delayText}>
+                              {order.delay.reason} ({order.delay.duration})
+                            </div>
+                          ) : (
+                            <span className={styles.onTimeText}>On Time</span>
+                          )}
+                        </TableCell>
                       </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {filteredLogisticsData.map(order => (
-                        <TableRow key={order.id}>
-                          <TableCell className={styles.tableCell}>{order.orderNumber}</TableCell>
-                          <TableCell className={styles.tableCell}>
-                            <div>{order.from.name}</div>
-                            <div className={styles.cellSubtext}>{order.from.type}, {order.from.mandal}</div>
-                          </TableCell>
-                          <TableCell className={styles.tableCell}>
-                            <div>{order.to.name}</div>
-                            <div className={styles.cellSubtext}>{order.to.type}, {order.to.mandal}</div>
-                          </TableCell>
-                          <TableCell className={styles.tableCell}>
-                            <span className={`${styles.statusBadge} ${styles[`status${order.status.replace(/\s+/g, '')}`]}`}>
-                              {order.status}
-                            </span>
-                          </TableCell>
-                          <TableCell className={styles.tableCell}>{order.expectedDelivery}</TableCell>
-                          <TableCell className={styles.tableCell}>
-                            {order.delay.isDelayed ? (
-                              <div className={styles.delayText}>
-                                {order.delay.reason} ({order.delay.duration})
-                              </div>
-                            ) : (
-                              <span className={styles.onTimeText}>{t.onTime}</span>
-                            )}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
+                    ))}
+                  </TableBody>
+                </Table>
               </CardContent>
             </Card>
           </TabsContent>
