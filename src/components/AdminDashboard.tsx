@@ -1,16 +1,17 @@
 "use client"
+
 import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Globe, Search, TrendingUp, AlertTriangle, Truck, Download, Calendar, Clock, ArrowRight, Languages } from 'lucide-react'
-import { translations } from '@/locales/translations'
-
-type Language = 'en' | 'te'; // Define the Language type if it doesn't exist in the module
+import { translations, Language } from '@/locales/translations'
 import { districtData, mandalData } from '@/data/mandalData'
 import styles from './AdminDashboard.module.css'
 
