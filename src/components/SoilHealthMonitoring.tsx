@@ -309,7 +309,7 @@ const SoilHealthMonitoring = () => {
               </ul>
             </div>
             <button className="back-button" onClick={() => setShowHistory(false)}>
-              <FaArrowLeft /> Back to Dashboard
+              <FaArrowLeft /> Back to FarmerDashboard
             </button>
           </div>
         )}

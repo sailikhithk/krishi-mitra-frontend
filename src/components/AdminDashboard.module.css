@@ -1,0 +1,408 @@
+.dashboard {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.backgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/farm-background.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.header {
+  background: linear-gradient(to right, #2e7d32, #1b5e20);
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.headerButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.languageButton,
+.logoutButton {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.languageButton:hover,
+.logoutButton:hover {
+  background-color: white;
+  color: #2e7d32;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.selects {
+  display: flex;
+  gap: 15px;
+}
+
+.select {
+  min-width: 200px;
+}
+
+.search {
+  display: flex;
+  gap: 15px;
+}
+
+.searchInput {
+  width: 300px;
+}
+
+.exportButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.exportButton:hover {
+  background-color: #45a049;
+}
+
+.dateRange {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.dateInput {
+  width: 150px;
+}
+
+.dateRangeSeparator {
+  font-weight: bold;
+}
+
+.tabs {
+  margin-bottom: 30px;
+}
+
+.tabsList {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabsList button {
+  flex: 1;
+  padding: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.tabsList button[data-state="active"] {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.tabContent {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sideHeadings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sideHeading {
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.sideHeading:hover {
+  background-color: #e8f5e9;
+}
+
+.chartContainer {
+  height: 400px;
+  margin-top: 20px;
+}
+
+.complaintList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.complaintItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.complaintInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.complaintMandal {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.complaintType {
+  color: #666;
+  font-size: 14px;
+}
+
+.complaintStatus {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.open {
+  background-color: #ffd54f;
+  color: #333;
+}
+
+.resolved {
+  background-color: #81c784;
+  color: white;
+}
+
+.inprogress {
+  background-color: #64b5f6;
+  color: white;
+}
+
+.logisticsStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.logisticItem {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logisticIcon {
+  font-size: 24px;
+  color: #2e7d32;
+}
+
+.logisticLabel {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.logisticValue {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0 0 0;
+}
+
+.statusBadge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.statusInTransit {
+  background-color: #64b5f6;
+  color: white;
+}
+
+.statusDelayed {
+  background-color: #ffd54f;
+  color: #333;
+}
+
+.statusDelivered {
+  background-color: #81c784;
+  color: white;
+}
+
+.cellSubtext {
+  font-size: 12px;
+  color: #666;
+}
+
+.delayText {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.onTimeText {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .headerContent,
+  .main {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selects,
+  .search {
+    width: 100%;
+  }
+
+  .select,
+  .searchInput {
+    width: 100%;
+  }
+
+  .logisticsStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerButtons {
+    margin-top: 15px;
+  }
+
+  .dateRange {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dateInput {
+    width: 100%;
+  }
+
+  .logisticsStats {
+    grid-template-columns: 1fr;
+  }
+
+  .tabsList {
+    flex-direction: column;
+  }
+
+  .tabsList button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .complaintItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .complaintStatus {
+    margin-top: 10px;
+  }
+}

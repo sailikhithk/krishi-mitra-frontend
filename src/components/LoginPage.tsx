@@ -32,7 +32,7 @@ const LoginPage: React.FC = () => {
         navigate('/vendor-dashboard');
       } else {
         console.log('Navigating to farmer dashboard');  // Add this line
-        navigate('/dashboard');
+        navigate('/farmer-dashboard');
       }
     } catch (error: any) {
       console.error('Login failed:', error.response?.data || error.message);
