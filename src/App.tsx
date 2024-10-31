@@ -8,9 +8,12 @@ import BiddingProcess from './components/BiddingProcess';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import Profile from './components/Profile';
-import Dashboard from './components/Dashboard';
+import FarmerDashboard from './components/FarmerDashboard';
 import VendorDashboard from './components/VendorDashboard';
 import './App.css';
+
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   return (
@@ -23,8 +26,10 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="farmer-dashboard" element={<FarmerDashboard />} />
           <Route path="/vendor-dashboard" element={<VendorDashboard />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </div>
     </Router>
