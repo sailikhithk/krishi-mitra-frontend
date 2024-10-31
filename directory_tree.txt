@@ -103,9 +103,15 @@ C:\USERS\LIKKI\DOWNLOADS\GITHUB\KRISHI-MITRA-FRONTEND\SRC
 |           table.tsx
 |           tabs.tsx
 |           
++---data
+|       mandalData.ts
+|       
 +---hooks
 +---lib
 |       utils.ts
+|       
++---locales
+|       translations.ts
 |       
 +---mockups
 |       5e93410d-fa41-45ba-b8c2-7a943ea9d334.png
